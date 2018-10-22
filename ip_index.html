@@ -11,74 +11,88 @@
 </head>
 
 <body onload="showNewVerb();">
-    <h1>Conjugate This!</h1>
+    <div class="borderAll">
+        <div class="banner-container">
+            <div class="title">Conjugate This!</div>
+            <div class="sub-header">Pick a language and verb tense below, then press <u>'SHOW NEW VERB'</u> button to
+                practice
+                your first verb!</div>
+            <img class="banner-image" src="img/earth_banner.jpg" alt="Italian City">
+        </div>
 
-    <div class="banner">
-        <img class="banner-image" src="img/italy_background.jpg" alt="Italian City">
-    </div>
-
-    <ul class="nav">
-        <!-- <div class="logo">
-            LOGO
-        </div> -->
-
-
-        <li><a href="#">Select A Language</a></li>
-        <li><a href="#">Select A Verb Tense</a></li>
-        <li><a href="#">Star List</a></li>
-        <li><a href="#">Only Regular Verbs</a></li>
-        <li><a href="#">Only Irregular Verbs</a></li>
+        <ul class="nav">
+            <li><a href="#">Select A Language</a></li>
+            <li><a href="#">Select A Verb Tense</a></li>
+            <li><a href="#">Star List</a></li>
+            <li><a href="#">Only Regular Verbs</a></li>
+            <li><a href="#">Only Irregular Verbs</a></li>
 
 
 
-        <!-- <li>
-            <div class="dropdown language-dropdown">
-                <button class="dropbtn language-dropdown">Select A Language</button>
-                <div class="dropdown-content language-content">
-                    <a href="#">Italian</a>
-                    <a href="#">Spanish</a>
-                    <a href="#">Portuguese</a>
+            <!-- <li>
+                <div class="dropdown language-dropdown">
+                    <button class="dropbtn language-dropdown">Select A Language</button>
+                    <div class="dropdown-content language-content">
+                        <a href="#">Italian</a>
+                        <a href="#">Spanish</a>
+                        <a href="#">Portuguese</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="dropdown-content dropdown tense-dropdown">
+                    <button class="dropbtn tense-dropdown">Select A Language</button>
+                    <div class="dropdown-content tense-content">
+                        <a href="#">Present</a>
+                        <a href="#">Simple Past</a>
+                        <a href="#">Simple Future</a>
+                    </div>
+                </div>
+            </li> -->
+        </ul>
+
+        <div class="verb-section">
+            <div class="showVerbSection">
+                <h3 class="inlineConjugate">Verb to conjugate and translate is: </h3>
+                <h3 class="inlineConjugate verbH3Insert"></h3>
+                <input type="text" class="inlineConjugate translateInput" name="translateVerb" id="" placeholder="Translate verb to English...">
+                <button class="showNewVerbBtn" onclick="clearBoxes();">SHOW NEW VERB</button>
+                <h3 class="inlineConjugate messageAllAnswersCorrect"></h3>
+            </div>
+            <div class="grid">
+                <div class="column1">
+                    <div>
+                        <label class="ioLabel">io: </label>
+                        <input class="ioInput inputBox" type="text" name="ioForm" id="" placeholder="Conjugate 'I' form...">
+                    </div>
+                    <div>
+                        <label class="tuLabel">tu: </label>
+                        <input class="tuInput inputBox" type="text" name="tuForm" id="" placeholder="Conjugate 'You' form...">
+                    </div>
+                    <div>
+                        <label class="luiLabel">lui: </label>
+                        <input class="luiInput inputBox" type="text" name="luiForm" id="" placeholder="Conjugate 'He/She/It' form...">
+                    </div>
+                </div>
+                <div class="column2">
+                    <div>
+                        <label class="noiLabel">noi: </label>
+                        <input class="noiInput inputBox" type="text" name="noiForm" id="" placeholder="Conjugate 'We' form...">
+                    </div>
+                    <div>
+                        <label class="voiLabel">voi: </label>
+                        <input class="voiInput inputBox" type="text" name="voiForm" id="" placeholder="Conjugate 'You all' form...">
+                    </div>
+                    <div>
+                        <label class="loroLabel">loro: </label>
+                        <input class="loroInput inputBox" type="text" name="loroForm" id="" placeholder="Conjugate 'They' form...">
+                    </div>
                 </div>
             </div>
-        </li>
-        <li>
-            <div class="dropdown-content dropdown tense-dropdown">
-                <button class="dropbtn tense-dropdown">Select A Language</button>
-                <div class="dropdown-content tense-content">
-                    <a href="#">Present</a>
-                    <a href="#">Simple Past</a>
-                    <a href="#">Simple Future</a>
-                </div>
-            </div>
-        </li> -->
-    </ul>
-
-    <div class="newVerbSection">
-        <h3>Verb to conjugate is: </h3>
-        <h3 class="verbH3Insert"></h3>
-        <button class="showNewVerbBtn" onclick="clearBoxes();">SHOW NEW VERB</button>
-        <h3 class="messageAllAnswersCorrect"></h3>
-    </div>
-
-    <div class="grid">
-        <div class="column1">
-            <span class="ioInput1"></span>io </span><input class="ioInput inputBox ioInput1" type="text" name="ioForm"
-                id="">
-            <span class="tuInput1">tu </span><input class="tuInput inputBox tuInput1" type="text" name="tuForm" id="">
-            <span class="luiInput1">lui </span><input class="luiInput inputBox luiInput1" type="text" name="luiForm" id="">
-        </div>
-        <div class="column2">
-            noi <input class="noiInput inputBox" type="text" name="noiForm" id="">
-            voi <input class="voiInput inputBox" type="text" name="voiForm" id="">
-            loro <input class="loroInput inputBox" type="text" name="loroForm" id="">
+            <button class="checkAnswersBtn">CHECK MY ANSWERS</button>
+            <button class="resetVerbListBtn">RESET VERB LIST</button>
         </div>
     </div>
-
-    <button class="checkAnswersBtn">CHECK MY ANSWERS</button>
-    <button class="resetVerbListBtn">RESET VERB LIST</button>
-
-
-
     <script src="ip_main.js"></script>
 </body>
 

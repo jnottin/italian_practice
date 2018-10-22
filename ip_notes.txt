@@ -2,11 +2,15 @@ PROBLEMS:
     FUNCTIONALITY:
         -"RESET VERB LIST" button is clicked (hidden normally):
             -DONE -- reset button for end of verbsShownList, 
-            -is hidden normally, hides "SHOW NEW VERB" and "CHECK MY ANSWERS" button when shown
+            -is hidden normally, hides or disables "SHOW NEW VERB" and "CHECK MY ANSWERS" button when shown
             -DONE -- shown at end of verbsNotShownList
+        -TRANSLATE INPUT -- needs to be check and given same borders as other input_boxes
 
     LAYOUT:
-        -divs are not responding to CSS grid format I set up, spans not working either
+        -GRID - center grid and reduce width on each side
+        -CHECK MY ANSWERS and SHOW NEW VERB buttons should be styled more
+
+
         
 
 
@@ -21,6 +25,7 @@ FUNCTIONALITY IDEAS:
         -checkbox for if you want to see which boxes are irregular or regular
         -check box for showing only reg verbs or irreg verbs
         -"SKIP VERB" button to allow respondent to skip the verb but have it shown again later
+        -ALERT if SHOW NEXT VERB button is clicked without getting all answers correct
     
 
     SECONDARY: 
@@ -47,10 +52,15 @@ FUNCTIONALITY IDEAS:
 
 LAYOUT IDEAS:
     PRIMARY:
-        -Change grid background color based on language selected
+        -Change grid background color/border based on language selected
+        -GRID - LORO moved the input further away
     
     SECONDARY:
-        -
+        -TITLE - how to make font-size respond to browser size?
+        -NAV-BAR - when screen size is reduced enough, those elements are squished
+        -FINISHED VERBS TEXT - too spaced out and then squished SHOW NEW VERB BUTTON
+        -Hamburger icon if screen gets small enough, or shrink font size or stack them
+
 
 
 
@@ -83,7 +93,7 @@ QUESTIONS:
 4. button RESET VERB LIST, i put var verbListNotShown = verbList; it seems like that is makeing verblist lose verbs 
 from SHOW NEW VERB but verbListNotShown should be the one losing verbs. Now i have to duplicate the array everywhere
 
-5. CSS question, newVerbSection display: inline does not put items inline. Why?
+5. CSS question, showVerbSection display: inline does not put items inline. Why?
 
 
 

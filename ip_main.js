@@ -7,11 +7,12 @@ var luiBox = document.querySelector(".luiInput");
 var noiBox = document.querySelector(".noiInput");
 var voiBox = document.querySelector(".voiInput");
 var loroBox = document.querySelector(".loroInput");
-var answerBoxes = [ioBox, tuBox, luiBox, noiBox, voiBox, loroBox]
+var tranlsateBox = document.querySelector(".translateInput");
+var answerBoxes = [ioBox, tuBox, luiBox, noiBox, voiBox, loroBox, tranlsateBox]
 
 //SELECTING INPUT BOX VALUES
 var inputBoxes = [ioBox.value, tuBox.value, luiBox.value, noiBox.value, voiBox.value, loroBox.value]
-var inputs = ["io", "tu", "lui", "noi", "voi", "loro"];
+var inputs = ["io", "tu", "lui", "noi", "voi", "loro", "translate"];
 
 
 //EFFECT OF BUTTON CLICK
@@ -26,6 +27,7 @@ const resetVerbListBtn = document.querySelector(".resetVerbListBtn");
 //OBJECT FOR VERB TENSES
 var verbTenses = {
   potere: {
+    translate: "can",
     participio_presente: "potente",
     gerundio: "potendo",
     participio_passato: "potuto",
@@ -55,6 +57,7 @@ var verbTenses = {
     },
   },
   essere: {
+    translate: "to be",
     participio_presente: "essente",
     gerundio: "essendo",
     participio_passato: "stato",
@@ -72,6 +75,7 @@ var verbTenses = {
     },
   },
   avere: {
+    translate: "to have",
     participio_presente: "avente",
     gerundio: "avendo",
     participio_passato: "avuto",
@@ -89,6 +93,7 @@ var verbTenses = {
     },
   },
   salire: {
+    translate: "to go up",
     participio_presente: "salente",
     gerundio: "salendo",
     participio_passato: "salito",
@@ -106,6 +111,7 @@ var verbTenses = {
     },
   },
   colpire: {
+    translate: "to hit",
     participio_presente: "colpente",
     gerundio: "colpendo",
     participio_passato: "colpito",
@@ -123,6 +129,7 @@ var verbTenses = {
     },
   },
   andare: {
+    translate: "to go",
     participio_presente: "andante",
     gerundio: "andando",
     participio_passato: "andato",
@@ -140,6 +147,7 @@ var verbTenses = {
     },
   },
   cenare: {
+    translate: "to eat dinner",
     participio_presente: "cenante",
     gerundio: "cenando",
     participio_passato: "cenato",
@@ -208,6 +216,8 @@ function clearBoxes() {
   document.querySelector('.voiInput').style.border = "";
   document.querySelector('.loroInput').value = "";
   document.querySelector('.loroInput').style.border = "";
+  document.querySelector('.translateInput').value = "";
+  document.querySelector('.translateInput').style.border = "";
 }
 
 
@@ -233,27 +243,38 @@ function checkIndividualAnswers() {
   voi_input = voi_input.toLowerCase()
   var loro_input = document.querySelector(".loroInput").value;
   loro_input = loro_input.toLowerCase()
+  var tranlsate_input = document.querySelector(".translateInput").value;
+  tranlsate_input = tranlsate_input.toLowerCase()
 
-  var inputBoxes = [io_input, tu_input, lui_input, noi_input, voi_input, loro_input]
-  var inputs = ["io", "tu", "lui", "noi", "voi", "loro"];
+  var inputBoxes = [io_input, tu_input, lui_input, noi_input, voi_input, loro_input, tranlsate_input]
+  var inputs = ["io", "tu", "lui", "noi", "voi", "loro", "translate"];
 
   for (var i = 0; i < inputBoxes.length; i++) {
-    if (inputBoxes[i] === verbTenses[verbInserted].presente[inputs[i]]) {
-      answerBoxes[i].style.border = "4px solid green";
+    if (inputBoxes[i] === tranlsate_input) {
+      if (tranlsate_input === verbTenses[verbInserted].translate) {
+        document.querySelector(".translateInput").style.border = "4px solid green";
+      } else {
+        document.querySelector(".translateInput").style.border = "4px solid red";
+      }
     } else {
-      answerBoxes[i].style.border = "4px solid red";
+      if (inputBoxes[i] === verbTenses[verbInserted].presente[inputs[i]]) {
+        answerBoxes[i].style.border = "4px solid green";
+      } else {
+        answerBoxes[i].style.border = "4px solid red";
+      }
     }
   }
-  checkAllAnswersCorr(io_input, tu_input, lui_input, noi_input, voi_input, loro_input)
+  checkAllAnswersCorr(io_input, tu_input, lui_input, noi_input, voi_input, loro_input, tranlsate_input)
 }
 
-function checkAllAnswersCorr(io_input, tu_input, lui_input, noi_input, voi_input, loro_input) {
+function checkAllAnswersCorr(io_input, tu_input, lui_input, noi_input, voi_input, loro_input, tranlsate_input) {
   if (io_input === verbTenses[verbInserted].presente.io
     && tu_input === verbTenses[verbInserted].presente.tu
     && lui_input === verbTenses[verbInserted].presente.lui
     && noi_input === verbTenses[verbInserted].presente.noi
     && voi_input === verbTenses[verbInserted].presente.voi
-    && loro_input === verbTenses[verbInserted].presente.loro) {
+    && loro_input === verbTenses[verbInserted].presente.loro
+    && tranlsate_input === verbTenses[verbInserted].translate) {
     messageAllAnswersCorrect.innerText = "Great job, you got this verb right! Click 'SHOW NEW VERB' to try another!";
   } else {
     messageAllAnswersCorrect.innerText = "";
