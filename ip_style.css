@@ -1,0 +1,65 @@
+body {
+  background-color: grey;
+  font-family: "Mali", cursive;
+}
+
+h1 {
+  text-align: center;
+  text-decoration: underline;
+}
+
+.newVerbSection {
+  /* THIS DOES NOT PUT THEM INLINE...WHY?
+  display: inline; */
+}
+
+
+button {
+  margin-bottom: 30px;
+}
+
+.newVerbSection {
+  text-align: center;
+}
+
+
+
+/* .grid {
+  text-align: center;
+  display: grid;
+  grid-template-columns: 200px 200px;
+  grid-template-rows: 50px 50px 50px;
+  justify-content: center;
+}
+
+.ioInput {
+  grid-row: 1;
+  grid-column: 1;
+  display: inline-block;
+}
+.tuInput {
+  grid-row: 2;
+  grid-column: 1;
+  display: inline-block;
+}
+.luiInput {
+  grid-row: 3;
+  grid-column: 1;
+  display: inline-block;
+}
+.noiInput {
+  grid-row: 1;
+  grid-column: 2;
+}
+.voiInput {
+  grid-row: 2;
+  grid-column: 2;
+}
+.loroInput {
+  grid-row: 3;
+  grid-column: 2;
+}
+
+.resetVerbListBtn {
+  display: none;
+} */

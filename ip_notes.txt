@@ -1,0 +1,83 @@
+PROBLEMS:
+    FUNCTIONALITY:
+        -"RESET VERB LIST" button is clicked (hidden normally):
+            -DONE -- reset button for end of verbsShownList, 
+            -is hidden normally, hides "SHOW NEW VERB" and "CHECK MY ANSWERS" button when shown
+            -DONE -- shown at end of verbsNotShownList
+
+    LAYOUT:
+        -divs are not responding to CSS grid format I set up, spans not working either
+
+
+
+
+
+FUNCTIONALITY IDEAS:
+
+    PRIMARY:
+        -insert english verb translation box
+        -whether verb is irr or reg
+        -"SKIP VERB" button to allow respondent to skip the verb but have it shown again later
+    
+
+    SECONDARY: 
+        -star button to save verb to starList
+        -checkbox for if you want to see which boxes are irregular are regular
+        -MASTER THE VERB respondent must get verb right 3 times to be 
+        taken out of running list, GET IT RIGHT got all answers correct atleast once.
+        -drop down menu to switch tenses, with a button to say "I'm ready" and then show "CHECK ANSWERS" and "SHOW NEXT VERB". Have
+        text for io, tu, lui inputs in english until they pick the language/tenses
+        -show those verbs that the person got completely correct or 
+        a bar? that they mastered or just got correct and the ones left?
+        -have a button for only reg or irregular verbs
+
+
+    TERTIARY:
+        -show the incorrect parts of the answer
+        
+        -ability for respondent to add new verb:
+            -dropdown menu for tense
+            -dropdown for language
+            -inputs for (io, tu, lui etc)
+
+
+
+
+LAYOUT IDEAS:
+    -
+
+
+
+
+
+LOOSE IDEAS:
+    -what if I make the verb an class or each language? and each verb is an instance 
+
+
+
+
+
+
+QUESTIONS:
+
+1. 
+    //??how can i get this to work, it's something like this
+    // var input_boxes = ["io", "tu", "lui", "noi", "voi", "loro"];
+    // for (var i = 0; i < input_boxes.length; i++) {
+    //   input_boxes[i]_input = document.querySelector("myText").value;
+    // }
+
+
+2. a. "getting values from boxes" the io_input, tu_input etc why can this not be outside of the checkAnswers() function?
+    b. can I add toLowerCase to some other line to condense a little? 
+
+
+3. why is querySelectorAll not working for clearing all input values?
+
+4. button RESET VERB LIST, i put var verbListNotShown = verbList; it seems like that is makeing verblist lose verbs 
+from SHOW NEW VERB but verbListNotShown should be the one losing verbs. Now i have to duplicate the array everywhere
+
+5. CSS question, newVerbSection display: inline does not put items inline. Why?
+
+
+

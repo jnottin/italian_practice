@@ -1,0 +1,53 @@
+MVP:
+    -Practice verb conjugation in italian present tense 
+    -check your answers until all correct, then move to next verb
+
+
+USER STORY:
+    PRIMARY:
+        -   
+    
+    SECONDARY:
+        -
+
+
+FUNCTIONS SIMPLIFIED:
+    -Dropdown menu allowing respondent to switch language between spanish, italian and portuguese. When language is picked, background image will change to that country/flag
+    -Another dropdown menu allowing respondent to switch verb tense (present, simple past, simple future) for respective language
+    -Checks input answers for correct/incorrect, gives border to input box of green/red respecitvely. Then show respondent characters that were incorrect in their spelling of the word
+    -Show New Verb button to get another verb on the list to allow respondent to fill in correct conjugations
+    -Reset Verb List button to allow respondent to repeat all verbs again
+    -Checkbox for if you want to see which conjugation boxes of the verb are irregular are regular
+    -Checkbox to show only irregular verbs or only regular verbs
+    -Count or tri-color bar (green=mastered, yellow=right, red=not shown) above verb conjugation grid showing # of verbs "right" (respondent got all conjugations correct), # of verbs "mastered" (respondent got all conjugations correct 3 times for the verb), # of verbs not shown yet (verbs the respondent has not been shown)
+    -Star button feature, respondent can "star" verbs that they want to save for later. There will be a "Star List" button that they can click to go to a different page and view the full list of "stared" words. In this Star List page, there will be a search button allowing respondents to locate a particular verb. Also a hover ability over the verb to show full conjugation in all tenses.
+    -Page section for respondent to add new verb themselves:
+            -dropdown menu for tense
+            -dropdown for language
+            -inputs for (I, YOU, HE/SHE/IT, US etc)
+            -save it and then implement it in running list of verbs
+
+
+FUNCTIONS MADE:
+    -When "Check my answers" button is pressed:
+        -input boxes are given border of green/red respecitvely for correct/incorrect
+        -respondent can enter answer regardless of capitalization
+    
+    -When SHOW NEW VERB button is clicked:
+        -Clear text and bordersfrom input boxes
+        -insert insertedVerb for new verb
+
+    -"RESET VERB LIST" button is clicked (hidden normally):
+        -reset button for end of verbsShownList, 
+        -is hidden normally, hides "SHOW NEW VERB" button when shown
+        -shown at end of verbsNotShownList
+
+ 
+
+
+
+TO DO:
+    -get it on github need to get init first, to share (not git enterprise)
+    -look at README
+    -work on CSS
+    -try to make it DRYER

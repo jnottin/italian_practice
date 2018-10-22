@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Conjugate This!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="ip_style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Mali" rel="stylesheet">
+</head>
+
+<body onload="showNewVerb();">
+    <h1>Conjugate This!</h1>
+
+    <div class="newVerbSection">
+        <h3>Verb to conjugate is: </h3>
+        <h3 class="verbH3Insert"></h3>
+        <button class="showNewVerbBtn" onclick="clearBoxes();">SHOW NEW VERB</button>
+        <h3 class="messageAllAnswersCorrect"></h3>
+    </div>
+
+    <div class="grid">
+        <div class="column1">
+            <span class="ioInput1"></span>io </span><input class="ioInput inputBox ioInput1" type="text" name="ioForm"
+                id="">
+            <span class="tuInput1">tu </span><input class="tuInput inputBox tuInput1" type="text" name="tuForm" id="">
+            <span class="luiInput1">lui </span><input class="luiInput inputBox luiInput1" type="text" name="luiForm" id="">
+        </div>
+        <div class="column2">
+            noi <input class="noiInput inputBox" type="text" name="noiForm" id="">
+            voi <input class="voiInput inputBox" type="text" name="voiForm" id="">
+            loro <input class="loroInput inputBox" type="text" name="loroForm" id="">
+        </div>
+    </div>
+
+    <button class="checkAnswersBtn">CHECK MY ANSWERS</button>
+    <button class="resetVerbListBtn">RESET VERB LIST</button>
+
+
+
+    <script src="ip_main.js"></script>
+</body>
+
+</html>
