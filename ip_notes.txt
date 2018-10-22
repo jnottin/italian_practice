@@ -7,6 +7,7 @@ PROBLEMS:
 
     LAYOUT:
         -divs are not responding to CSS grid format I set up, spans not working either
+        
 
 
 
@@ -17,12 +18,13 @@ FUNCTIONALITY IDEAS:
     PRIMARY:
         -insert english verb translation box
         -whether verb is irr or reg
+        -checkbox for if you want to see which boxes are irregular or regular
+        -check box for showing only reg verbs or irreg verbs
         -"SKIP VERB" button to allow respondent to skip the verb but have it shown again later
     
 
     SECONDARY: 
         -star button to save verb to starList
-        -checkbox for if you want to see which boxes are irregular are regular
         -MASTER THE VERB respondent must get verb right 3 times to be 
         taken out of running list, GET IT RIGHT got all answers correct atleast once.
         -drop down menu to switch tenses, with a button to say "I'm ready" and then show "CHECK ANSWERS" and "SHOW NEXT VERB". Have
@@ -44,7 +46,11 @@ FUNCTIONALITY IDEAS:
 
 
 LAYOUT IDEAS:
-    -
+    PRIMARY:
+        -Change grid background color based on language selected
+    
+    SECONDARY:
+        -
 
 
 
