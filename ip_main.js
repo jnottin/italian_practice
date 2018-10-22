@@ -27,7 +27,7 @@ const resetVerbListBtn = document.querySelector(".resetVerbListBtn");
 //OBJECT FOR VERB TENSES
 var verbTenses = {
   potere: {
-    translate: "can",
+    translate: "to be able",
     participio_presente: "potente",
     gerundio: "potendo",
     participio_passato: "potuto",
@@ -189,16 +189,17 @@ function showNewVerb() {
     verbInsertPlacement.innerText =
       verbInserted.charAt(0).toUpperCase() + verbInserted.slice(1);
   } else {
-    verbInsertPlacement.innerText = "Great job, you learned all the verbs! Click the 'RESET VERB LIST' button to study again.";
+    messageAllAnswersCorrect.innerText = "";
+    verbInsertPlacement.innerText = "Great job, you learned all the verbs! Click the 'RESET VERB LIST' button to study the verbs again.";
     showResetButton();
   }
 }
 
 function showResetButton() {
   resetVerbListBtn.style.display = "inline";
-  checkAnswersBtn.style.display = "inline";
-  showNewVerbBtn.style.display = "inline";
-
+  checkAnswersBtn.style.display = "none";
+  showNewVerbBtn.style.display = "none";
+  tranlsateBox.style.display = "none";
 }
 
 //CLEAR BOXES WHEN showNewVerb IS CLICKED
@@ -250,6 +251,7 @@ function checkIndividualAnswers() {
   var inputs = ["io", "tu", "lui", "noi", "voi", "loro", "translate"];
 
   for (var i = 0; i < inputBoxes.length; i++) {
+    // Problem has to do with this part, how do I fix?
     if (inputBoxes[i] === tranlsate_input) {
       if (tranlsate_input === verbTenses[verbInserted].translate) {
         document.querySelector(".translateInput").style.border = "4px solid green";
@@ -284,6 +286,9 @@ function checkAllAnswersCorr(io_input, tu_input, lui_input, noi_input, voi_input
 function resetVerbList() {
   verbListShown = []
   verbListNotShown = ["potere", "essere", "avere", "salire", "colpire", "andare", "cenare"];
+  checkAnswersBtn.style.display = "inline";
+  showNewVerbBtn.style.display = "inline";
+  tranlsateBox.style.display = "inline";
   showNewVerb()
   resetVerbListBtn.style.display = "none";
 }

@@ -1,14 +1,14 @@
 PROBLEMS:
     FUNCTIONALITY:
-        -"RESET VERB LIST" button is clicked (hidden normally):
-            -DONE -- reset button for end of verbsShownList, 
-            -is hidden normally, hides or disables "SHOW NEW VERB" and "CHECK MY ANSWERS" button when shown
-            -DONE -- shown at end of verbsNotShownList
-        -TRANSLATE INPUT -- needs to be check and given same borders as other input_boxes
+         -TRANSLATE VERB -- box is showing red with no text in it when CHECK ANSWERS button is pressed, 
+        but conj inputs not unless i put text in Translate input
+        - CHECK BOXES -- need functionality added
 
     LAYOUT:
-        -GRID - center grid and reduce width on each side
-        -CHECK MY ANSWERS and SHOW NEW VERB buttons should be styled more
+        -GRID - center grid, there is something on the right side blocking it
+        -CHECK BOXES - move to third column of grid
+        
+
 
 
         
@@ -53,7 +53,8 @@ FUNCTIONALITY IDEAS:
 LAYOUT IDEAS:
     PRIMARY:
         -Change grid background color/border based on language selected
-        -GRID - LORO moved the input further away
+        -GRID - LORO moved the input further away, should be same distance as other inputs
+        -FINISHED VERB LIST MESSAGE - a little far from the grid
     
     SECONDARY:
         -TITLE - how to make font-size respond to browser size?

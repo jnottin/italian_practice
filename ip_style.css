@@ -72,7 +72,7 @@ body {
   padding-left: 10px;
 }
 
-.nav > li > a {
+.nav-bar {
   text-decoration: none;
   color: white;
   background-color: black; 
@@ -132,15 +132,16 @@ body {
 
 .translateInput {
   width: 150px;
-  padding: 4px;
+  padding: 7px;
 }
 
 .showNewVerbBtn {
   margin-left: 20px;
 }
 
-input {
+.inputBox {
   width: 175px;
+  padding: 0 7px;
 }
 
 .grid {
@@ -152,7 +153,6 @@ input {
   justify-content: center;
   /* justify-items: center; */
   padding: 0 10px;
-
 }
 
 .iolabel {

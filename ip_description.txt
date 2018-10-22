@@ -41,6 +41,7 @@ FUNCTIONS MADE:
         -reset button for end of verbsShownList, 
         -is hidden normally, hides "SHOW NEW VERB" button when shown
         -shown at end of verbsNotShownList
+    
 
  
 
