@@ -2,7 +2,10 @@ PROBLEMS:
     FUNCTIONALITY:
          -TRANSLATE VERB -- box is showing red with no text in it when CHECK ANSWERS button is pressed, 
         but conj inputs not unless i put text in Translate input
-        - CHECK BOXES -- need functionality added -- i need to access things from the verbsList object
+        - CHECK BOXES - when box is checked only one verb is shown, only one verb shown
+        same with the irregular side. but it goes back to regular list when unchecked so thats good,
+        ALSO make alert for when one box is checked and respondent tries to check another
+        ALSO showed reset button for some reason
         -MAKE DRYER!!!!!
 
     LAYOUT:

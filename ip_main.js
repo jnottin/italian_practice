@@ -30,8 +30,42 @@ const checkBoxIrrVerbs = document.querySelector(".checkBoxIrrVerbs");
 showNewVerbBtn.addEventListener("click", showNewVerb);
 checkAnswersBtn.addEventListener("click", checkIndividualAnswers);
 resetVerbListBtn.addEventListener("click", resetVerbList);
-checkBoxRegVerbs.addEventListener("change", checkBoxRegVerbs);
-checkBoxIrrVerbs.addEventListener("change", checkBoxIrrVerbs);
+checkBoxRegVerbs.addEventListener("change", resetFromCheckBox);
+checkBoxIrrVerbs.addEventListener("change", resetFromCheckBox);
+
+// Reset VERBS FROM CHECK LIST
+function resetFromCheckBox() {
+  verbListShown = []
+  verbListNotShown = ["potere", "essere", "avere", "salire", "colpire", "andare", "cenare", "mangiare"];
+  checkIndexUsedArray = []
+  if (checkBoxRegVerbs.checked) {
+    showOnlyRegVerbs()
+  } else if (checkBoxIrrVerbs.checked) {
+    showOnlyIrrVerbs()
+  }
+}
+
+function showOnlyRegVerbs() {
+  for (var i = 0; i < verbTenses.length; i++) {
+    if (verbTenses[i][verbList[i]].presente.reg_o_irr.form !== "regular") {
+      verbListNotShown = []
+      verbListNotShown.push(verbTenses[i].verb)
+      verbListShown = []
+    }
+  }
+  showNewVerb()
+}
+
+function showOnlyIrrVerbs() {
+  for (var i = 0; i < verbTenses.length; i++) {
+    if (verbTenses[i][verbList[i]].presente.reg_o_irr.form !== "irregular") {
+      verbListNotShown = []
+      verbListNotShown.push(verbTenses[i].verb)
+      verbListShown = []
+    }
+  }
+  showNewVerb()
+}
 
 //OBJECT FOR VERB TENSES
 var verbTenses = [
@@ -227,12 +261,7 @@ var randomVerbIndex = 0;
 
 function updateNotShownNShownLists() {
   verbListShown.push(verbInserted);
-  console.log("Listshown: ")
-  console.log(verbListShown)
-
   verbListNotShown.splice(verbListNotShown.indexOf(verbInserted), 1);
-  console.log("List NOT shown:")
-  console.log(verbListNotShown)
 }
 
 function checkIndexUsed(randomVerbIndex) {
@@ -241,44 +270,14 @@ function checkIndexUsed(randomVerbIndex) {
   } else {
     checkIndexUsedArray.push(randomVerbIndex)
     verbInserted = verbTenses[randomVerbIndex].verb;
-    // // ADD CHECK BOX FUNCTIONALITY
-    // if (checkBoxRegVerbs.checked) {
-    //   showOnlyRegVerbs()
-    // } else if (checkBoxRegVerbs.checked) {
-    //   showOnlyIrrVerbs()
-    // } else {
     updateNotShownNShownLists()
-    // }
   }
 }
 
 var checkIndexUsedArray = []
-
 function getRandomVerb(verbTensesLength) {
   randomVerbIndex = Math.floor(Math.random() * verbTensesLength);
   checkIndexUsed(randomVerbIndex)
-}
-
-function showOnlyRegVerbs() {
-  for (var i = 0; i < verbTenses.length; i++) {
-    if (verbTenses[i][verbList[i]].presente.reg_o_irr.form !== "regular") {
-      verbListNotShown = []
-      verbListNotShown.push(verbTenses[i].verb)
-      verbListShown = []
-    }
-    getRandomVerb(verbTenses.length)
-  }
-}
-
-function showOnlyIrrVerbs() {
-  for (var i = 0; i < verbTenses.length; i++) {
-    if (verbTenses[i][verbList[i]].presente.reg_o_irr.form !== "irregular") {
-      verbListNotShown = []
-      verbListNotShown.push(verbTenses[i].verb)
-      verbListShown = []
-    }
-    getRandomVerb(verbTenses.length)
-  }
 }
 
 //ACTION FROM BUTTON CLICK
