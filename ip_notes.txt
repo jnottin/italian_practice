@@ -63,7 +63,7 @@ LAYOUT IDEAS:
         look for fading from one color to another or white to deeper color, pale color
         -GRID - LORO moved the input further away, should be same distance as other inputs
         -FINISHED VERB LIST MESSAGE - a little far from the grid
-	-VERB SECTION - should i move it to middle of image?
+	    -VERB SECTION / NAV BAR - move to middle of image
     
     SECONDARY:
         -TITLE/EVERYTHING - how to make font-size respond to browser size?

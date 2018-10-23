@@ -34,167 +34,191 @@ checkBoxRegVerbs.addEventListener("change", checkBoxRegVerbs);
 checkBoxIrrVerbs.addEventListener("change", checkBoxIrrVerbs);
 
 //OBJECT FOR VERB TENSES
-var verbTenses = {
-  potere: {
-    translate: "to be able",
-    participio_presente: "potente",
-    gerundio: "potendo",
-    participio_passato: "potuto",
-    presente: {
-      io: "posso",
-      tu: "puoi",
-      lui: "può",
-      noi: "possiamo",
-      voi: "potete",
-      loro: "possono",
-      reg_o_irr: {
-        form: "irregular",
-        // irrPlaces: [io_input, tu_input, lui_input, noi_input, loro_input]
+var verbTenses = [
+  {
+    verb: "potere",
+    potere: {
+      translate: "to be able",
+      participio_presente: "potente",
+      gerundio: "potendo",
+      participio_passato: "potuto",
+      presente: {
+        io: "posso",
+        tu: "puoi",
+        lui: "può",
+        noi: "possiamo",
+        voi: "potete",
+        loro: "possono",
+        reg_o_irr: {
+          form: "irregular",
+          // irrPlaces: [io_input, tu_input, lui_input, noi_input, loro_input]
+        },
       },
-      passato_prossimo: {
-        ess_o_aver: "avere",
-        io: "ho potuto",
-        tu: "hai potuto",
-        lui: "ha potuto",
-        noi: "abbiamo potuto",
-        voi: "avete potuto",
-        loro: "hanno potuto",
+      // passato_prossimo: {
+      //   ess_o_aver: "avere",
+      //   io: "ho potuto",
+      //   tu: "hai potuto",
+      //   lui: "ha potuto",
+      //   noi: "abbiamo potuto",
+      //   voi: "avete potuto",
+      //   loro: "hanno potuto",
+      //   reg_o_irr: {
+      //     form: "regular",
+      //   },
+      // },
+    },
+  },
+  {
+    verb: "essere",
+    essere: {
+      translate: "to be",
+      participio_presente: "essente",
+      gerundio: "essendo",
+      participio_passato: "stato",
+      presente: {
+        io: "sono",
+        tu: "sei",
+        lui: "è",
+        noi: "siamo",
+        voi: "siete",
+        loro: "sono",
+        reg_o_irr: {
+          form: "irregular",
+          // irrPlaces: [io_input, tu_input, lui_input, noi_input, voi_input, loro_input]
+        },
+      },
+    },
+  },
+  {
+    verb: "avere",
+    avere: {
+      translate: "to have",
+      participio_presente: "avente",
+      gerundio: "avendo",
+      participio_passato: "avuto",
+      presente: {
+        io: "ho",
+        tu: "hai",
+        lui: "ha",
+        noi: "abbiamo",
+        voi: "avete",
+        loro: "hanno",
+        reg_o_irr: {
+          form: "irregular",
+          // irrPlaces: [io_input, tu_input, lui_input, noi_input, voi_input, loro_input]
+        }
+      },
+    },
+  },
+  {
+    verb: "salire",
+    salire: {
+      translate: "to go up",
+      participio_presente: "salente",
+      gerundio: "salendo",
+      participio_passato: "salito",
+      presente: {
+        io: "salgo",
+        tu: "sali",
+        lui: "sale",
+        noi: "saliamo",
+        voi: "salite",
+        loro: "salgono",
+        reg_o_irr: {
+          form: "irregular",
+          // irrPlaces: [io_input, loro_input]
+        }
+      },
+    },
+  },
+  {
+    verb: "colpire",
+    colpire: {
+      translate: "to hit",
+      participio_presente: "colpente",
+      gerundio: "colpendo",
+      participio_passato: "colpito",
+      presente: {
+        io: "colpisco",
+        tu: "colpisci",
+        lui: "colpisce",
+        noi: "colpiamo",
+        voi: "colpite",
+        loro: "colpiscono",
+        reg_o_irr: {
+          form: "irregular",
+          // irrPlaces: [io_input, tu_input, lui_input, loro_input]
+        },
+      },
+    },
+  },
+  {
+    verb: "andare",
+    andare: {
+      translate: "to go",
+      participio_presente: "andante",
+      gerundio: "andando",
+      participio_passato: "andato",
+      presente: {
+        io: "vado",
+        tu: "vai",
+        lui: "va",
+        noi: "andiamo",
+        voi: "andate",
+        loro: "vanno",
+        reg_o_irr: {
+          form: "irregular",
+          // irrPlaces: [io_input, tu_input, lui_input, loro_input]
+        },
+      },
+    },
+  },
+  {
+    verb: "cenare",
+    cenare: {
+      translate: "to eat dinner",
+      participio_presente: "cenante",
+      gerundio: "cenando",
+      participio_passato: "cenato",
+      presente: {
+        io: "ceno",
+        tu: "ceni",
+        lui: "cena",
+        noi: "ceniamo",
+        voi: "cenate",
+        loro: "cenano",
         reg_o_irr: {
           form: "regular",
-        },
-      }
-    },
-  },
-  essere: {
-    translate: "to be",
-    participio_presente: "essente",
-    gerundio: "essendo",
-    participio_passato: "stato",
-    presente: {
-      io: "sono",
-      tu: "sei",
-      lui: "è",
-      noi: "siamo",
-      voi: "siete",
-      loro: "sono",
-      reg_o_irr: {
-        form: "irregular",
-        // irrPlaces: [io_input, tu_input, lui_input, noi_input, voi_input, loro_input]
-      }
-    },
-  },
-  avere: {
-    translate: "to have",
-    participio_presente: "avente",
-    gerundio: "avendo",
-    participio_passato: "avuto",
-    presente: {
-      io: "ho",
-      tu: "hai",
-      lui: "ha",
-      noi: "abbiamo",
-      voi: "avete",
-      loro: "hanno",
-      reg_o_irr: {
-        form: "irregular",
-        // irrPlaces: [io_input, tu_input, lui_input, noi_input, voi_input, loro_input]
-      }
-    },
-  },
-  salire: {
-    translate: "to go up",
-    participio_presente: "salente",
-    gerundio: "salendo",
-    participio_passato: "salito",
-    presente: {
-      io: "salgo",
-      tu: "sali",
-      lui: "sale",
-      noi: "saliamo",
-      voi: "salite",
-      loro: "salgono",
-      reg_o_irr: {
-        form: "irregular",
-        // irrPlaces: [io_input, loro_input]
-      }
-    },
-  },
-  colpire: {
-    translate: "to hit",
-    participio_presente: "colpente",
-    gerundio: "colpendo",
-    participio_passato: "colpito",
-    presente: {
-      io: "colpisco",
-      tu: "colpisci",
-      lui: "colpisce",
-      noi: "colpiamo",
-      voi: "colpite",
-      loro: "colpiscono",
-      reg_o_irr: {
-        form: "irregular",
-        // irrPlaces: [io_input, tu_input, lui_input, loro_input]
+          // irrPlaces: []
+        }
       },
     },
   },
-  andare: {
-    translate: "to go",
-    participio_presente: "andante",
-    gerundio: "andando",
-    participio_passato: "andato",
-    presente: {
-      io: "vado",
-      tu: "vai",
-      lui: "va",
-      noi: "andiamo",
-      voi: "andate",
-      loro: "vanno",
-      reg_o_irr: {
-        form: "irregular",
-        // irrPlaces: [io_input, tu_input, lui_input, loro_input]
-      },
-    },
-  },
-  cenare: {
-    translate: "to eat dinner",
-    participio_presente: "cenante",
-    gerundio: "cenando",
-    participio_passato: "cenato",
-    presente: {
-      io: "ceno",
-      tu: "ceni",
-      lui: "cena",
-      noi: "ceniamo",
-      voi: "cenate",
-      loro: "cenano",
-      reg_o_irr: {
-        form: "regular",
-        // irrPlaces: []
-      }
-    },
-  },
-  mangiare: {
-    translate: "to eat",
-    participio_presente: "mangiante",
-    gerundio: "mangiando",
-    participio_passato: "mangiato",
-    presente: {
-      io: "mangio",
-      tu: "mangi",
-      lui: "mangia",
-      noi: "mangiamo",
-      voi: "mangiate",
-      loro: "mangiano",
-      reg_o_irr: {
-        form: "regular",
-        // irrPlaces: []
+  {
+    verb: "mangiare",
+    mangiare: {
+      translate: "to eat",
+      participio_presente: "mangiante",
+      gerundio: "mangiando",
+      participio_passato: "mangiato",
+      presente: {
+        io: "mangio",
+        tu: "mangi",
+        lui: "mangia",
+        noi: "mangiamo",
+        voi: "mangiate",
+        loro: "mangiano",
+        reg_o_irr: {
+          form: "regular",
+          // irrPlaces: []
+        }
       }
     }
-  }
-};
+  },
+];
 
 // VERB ARRAY FOR SELECTION
-var verbList = ["potere", "essere", "avere", "salire", "colpire", "andare", "cenare", "mangiare"];
+//var verbList = ["potere", "essere", "avere", "salire", "colpire", "andare", "cenare", "mangiare"];
 var verbListNotShown = ["potere", "essere", "avere", "salire", "colpire", "andare", "cenare", "mangiare"];
 var verbListShown = [];
 
@@ -203,21 +227,33 @@ var randomVerbIndex = 0;
 
 function updateNotShownNShownLists() {
   verbListShown.push(verbInserted);
-  verbListNotShown.splice(randomVerbIndex, 1);
+  verbListNotShown.splice(verbListNotShown.indexOf(verbInserted), 1);
 }
 
-function getRandomVerb(max) {
-  var randomVerbIndex = Math.floor(Math.random() * max);
-  verbInserted = verbListNotShown[randomVerbIndex];
+function checkIndexUsed(randomVerbIndex) {
+  if (checkIndexUsedArray.indexOf(randomVerbIndex) === -1) {
+
+  } else {
+    getRandomVerb(verbTenses.length)
+  }
+}
+
+var checkIndexUsedArray = []
+
+function getRandomVerb(verbTensesLength) {
+  randomVerbIndex = Math.floor(Math.random() * verbTensesLength);
+  checkIndexUsedArray.push(randomVerbIndex)
+  checkIndexUsed(randomVerbIndex)
+  verbInserted = verbTenses[randomVerbIndex].verb;
   /// ADD CHECK BOX FUNCTIONALITY
   // if (checkBoxRegVerbs.checked) {
-  //   if (verbTenses[verbInserted].presente.reg_o_irr.form === "regular") {
+  //   if (verbTenses[randomVerbIndex][verbInserted].presente.reg_o_irr.form === "regular") {
   //     getRandomVerb()
   //   } else {
   //     updateNotShownNShownLists()
   //   }
   // } else if (checkBoxRegVerbs.checked) {
-  //   if (verbTenses[verbInserted].presente.reg_o_irr.form === "irregular") {
+  //   if (verbTenses[randomVerbIndex][verbInserted].presente.reg_o_irr.form === "irregular") {
   //     getRandomVerb()
   //   } else {
   //     updateNotShownNShownLists()
@@ -231,7 +267,7 @@ function getRandomVerb(max) {
 function showNewVerb() {
   if (verbListNotShown.length !== 0) {
     messageAllAnswersCorrect.innerText = "";
-    getRandomVerb(verbListNotShown.length);
+    getRandomVerb(verbTenses.length);
     verbInsertPlacement.innerText =
       verbInserted.charAt(0).toUpperCase() + verbInserted.slice(1);
   } else {
@@ -297,13 +333,13 @@ function checkIndividualAnswers() {
   for (var i = 0; i < inputBoxes.length; i++) {
     // Problem has to do with this part, how do I fix?
     if (inputBoxes[i] === tranlsate_input) {
-      if (tranlsate_input === verbTenses[verbInserted].translate) {
+      if (tranlsate_input === verbTenses[randomVerbIndex][verbInserted].translate) {
         document.querySelector(".translateInput").style.border = "4px solid green";
       } else {
         document.querySelector(".translateInput").style.border = "4px solid red";
       }
     } else {
-      if (inputBoxes[i] === verbTenses[verbInserted].presente[inputs[i]]) {
+      if (inputBoxes[i] === verbTenses[randomVerbIndex][verbInserted].presente[inputs[i]]) {
         answerBoxes[i].style.border = "4px solid green";
       } else {
         answerBoxes[i].style.border = "4px solid red";
@@ -314,13 +350,13 @@ function checkIndividualAnswers() {
 }
 
 function checkAllAnswersCorr(io_input, tu_input, lui_input, noi_input, voi_input, loro_input, tranlsate_input) {
-  if (io_input === verbTenses[verbInserted].presente.io
-    && tu_input === verbTenses[verbInserted].presente.tu
-    && lui_input === verbTenses[verbInserted].presente.lui
-    && noi_input === verbTenses[verbInserted].presente.noi
-    && voi_input === verbTenses[verbInserted].presente.voi
-    && loro_input === verbTenses[verbInserted].presente.loro
-    && tranlsate_input === verbTenses[verbInserted].translate) {
+  if (io_input === verbTenses[randomVerbIndex][verbInserted].presente.io
+    && tu_input === verbTenses[randomVerbIndex][verbInserted].presente.tu
+    && lui_input === verbTenses[randomVerbIndex][verbInserted].presente.lui
+    && noi_input === verbTenses[randomVerbIndex][verbInserted].presente.noi
+    && voi_input === verbTenses[randomVerbIndex][verbInserted].presente.voi
+    && loro_input === verbTenses[randomVerbIndex][verbInserted].presente.loro
+    && tranlsate_input === verbTenses[randomVerbIndex][verbInserted].translate) {
     messageAllAnswersCorrect.innerText = "Great job, you got this verb right! Click 'SHOW NEW VERB' to try another!";
   } else {
     messageAllAnswersCorrect.innerText = "";
@@ -329,7 +365,7 @@ function checkAllAnswersCorr(io_input, tu_input, lui_input, noi_input, voi_input
 
 function resetVerbList() {
   verbListShown = []
-  verbListNotShown = ["potere", "essere", "avere", "salire", "colpire", "andare", "cenare"];
+  verbListNotShown = ["potere", "essere", "avere", "salire", "colpire", "andare", "cenare", "mangiare"];
   checkAnswersBtn.style.display = "inline";
   showNewVerbBtn.style.display = "inline";
   tranlsateBox.style.display = "inline";
