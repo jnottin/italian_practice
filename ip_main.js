@@ -23,6 +23,15 @@ const messageAllAnswersCorrect = document.querySelector(".messageAllAnswersCorre
 const showNewVerbBtn = document.querySelector(".showNewVerbBtn");
 const checkAnswersBtn = document.querySelector(".checkAnswersBtn");
 const resetVerbListBtn = document.querySelector(".resetVerbListBtn");
+const checkBoxRegVerbs = document.querySelector(".checkBoxRegVerbs");
+const checkBoxIrrVerbs = document.querySelector(".checkBoxIrrVerbs");
+
+//ADDING EVENT LISTENER TO BUTTON
+showNewVerbBtn.addEventListener("click", showNewVerb);
+checkAnswersBtn.addEventListener("click", checkIndividualAnswers);
+resetVerbListBtn.addEventListener("click", resetVerbList);
+checkBoxRegVerbs.addEventListener("change", checkBoxRegVerbs);
+checkBoxIrrVerbs.addEventListener("change", checkBoxIrrVerbs);
 
 //OBJECT FOR VERB TENSES
 var verbTenses = {
@@ -160,31 +169,68 @@ var verbTenses = {
       loro: "cenano",
       reg_o_irr: {
         form: "regular",
+        // irrPlaces: []
       }
     },
+  },
+  mangiare: {
+    translate: "to eat",
+    participio_presente: "mangiante",
+    gerundio: "mangiando",
+    participio_passato: "mangiato",
+    presente: {
+      io: "mangio",
+      tu: "mangi",
+      lui: "mangia",
+      noi: "mangiamo",
+      voi: "mangiate",
+      loro: "mangiano",
+      reg_o_irr: {
+        form: "regular",
+        // irrPlaces: []
+      }
+    }
   }
 };
 
 // VERB ARRAY FOR SELECTION
-var verbList = ["potere", "essere", "avere", "salire", "colpire", "andare", "cenare"];
-var verbListNotShown = ["potere", "essere", "avere", "salire", "colpire", "andare", "cenare"];
+var verbList = ["potere", "essere", "avere", "salire", "colpire", "andare", "cenare", "mangiare"];
+var verbListNotShown = ["potere", "essere", "avere", "salire", "colpire", "andare", "cenare", "mangiare"];
 var verbListShown = [];
 
 var verbInserted = "";
 var randomVerbIndex = 0;
 
+function updateNotShownNShownLists() {
+  verbListShown.push(verbInserted);
+  verbListNotShown.splice(randomVerbIndex, 1);
+}
+
 function getRandomVerb(max) {
   var randomVerbIndex = Math.floor(Math.random() * max);
   verbInserted = verbListNotShown[randomVerbIndex];
-  verbListShown.push(verbInserted);
-  verbListNotShown.splice(randomVerbIndex, 1);
+  /// ADD CHECK BOX FUNCTIONALITY
+  // if (checkBoxRegVerbs.checked) {
+  //   if (verbTenses[verbInserted].presente.reg_o_irr.form === "regular") {
+  //     getRandomVerb()
+  //   } else {
+  //     updateNotShownNShownLists()
+  //   }
+  // } else if (checkBoxRegVerbs.checked) {
+  //   if (verbTenses[verbInserted].presente.reg_o_irr.form === "irregular") {
+  //     getRandomVerb()
+  //   } else {
+  //     updateNotShownNShownLists()
+  //   }
+  // } else {
+  updateNotShownNShownLists()
+  // }
 }
 
 //ACTION FROM BUTTON CLICK
 function showNewVerb() {
   if (verbListNotShown.length !== 0) {
     messageAllAnswersCorrect.innerText = "";
-    // clearBoxes() - have the call in html but maybe should switch here
     getRandomVerb(verbListNotShown.length);
     verbInsertPlacement.innerText =
       verbInserted.charAt(0).toUpperCase() + verbInserted.slice(1);
@@ -222,18 +268,16 @@ function clearBoxes() {
 }
 
 
-//ADDING EVENT LISTENER TO BUTTON
-showNewVerbBtn.addEventListener("click", showNewVerb);
-checkAnswersBtn.addEventListener("click", checkIndividualAnswers);
-resetVerbListBtn.addEventListener("click", resetVerbList);
 
+// var inputBoxes = [io_input, tu_input, lui_input, noi_input, voi_input, loro_input, tranlsate_input]
+// var inputs = ["io", "tu", "lui", "noi", "voi", "loro", "translate"];
 
 
 // CHECKING INDIVIDUAL ANSWERS
 function checkIndividualAnswers() {
   // Getting the values from boxes
-  var io_input = document.querySelector(".ioInput").value;
-  io_input = io_input.toLowerCase()
+  var io_input = document.querySelector(".ioInput").value.toLowerCase();
+  // io_input = io_input
   var tu_input = document.querySelector(".tuInput").value;
   tu_input = tu_input.toLowerCase()
   var lui_input = document.querySelector(".luiInput").value;
@@ -293,6 +337,14 @@ function resetVerbList() {
   resetVerbListBtn.style.display = "none";
 }
 
+function showOnlyRegVerbs() {
+
+
+}
+
+function showOnlyIrrVerbs() {
+
+}
 
 
 

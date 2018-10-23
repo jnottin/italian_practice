@@ -2,10 +2,12 @@ PROBLEMS:
     FUNCTIONALITY:
          -TRANSLATE VERB -- box is showing red with no text in it when CHECK ANSWERS button is pressed, 
         but conj inputs not unless i put text in Translate input
-        - CHECK BOXES -- need functionality added
+        - CHECK BOXES -- need functionality added -- i need to access things from the verbsList object
+        -MAKE DRYER!!!!!
 
     LAYOUT:
-        -GRID - center grid, there is something on the right side blocking it
+        -GRID - center grid, there is something on the right side blocking it 
+        check it out now haha what is going on? two colums is perfect, label and input in one column, grid gap still not working
         -CHECK BOXES - move to third column of grid
         
 
@@ -61,11 +63,14 @@ LAYOUT IDEAS:
         look for fading from one color to another or white to deeper color, pale color
         -GRID - LORO moved the input further away, should be same distance as other inputs
         -FINISHED VERB LIST MESSAGE - a little far from the grid
+	-VERB SECTION - should i move it to middle of image?
     
     SECONDARY:
         -TITLE/EVERYTHING - how to make font-size respond to browser size?
         -NAV-BAR - when screen size is reduced enough, those elements are squished
         hamburger icon if screen gets small enough, or shrink font size or stack them
+        -star List button make into a star
+        -star list have the list in front of the respective flag for each language
 
 
 
@@ -81,9 +86,19 @@ LOOSE IDEAS:
 
 
 QUESTIONS:
+*****What is the smartest way for me to start the next languages? 
+    -Create diff object for spanish, italian etc? 
+    -Create objects inside of one for language?
+    -Create a class of each langauge or tense?
 
-1. 
-    //??how can i get this to work, it's something like this
+
+
+
+1. Why is translate verb input box the only one being hightlighted?
+
+
+
+1. a.    //??how can i get this to work, it's something like this
     // var input_boxes = ["io", "tu", "lui", "noi", "voi", "loro"];
     // for (var i = 0; i < input_boxes.length; i++) {
     //   input_boxes[i]_input = document.querySelector("myText").value;
