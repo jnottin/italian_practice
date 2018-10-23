@@ -218,7 +218,7 @@ var verbTenses = [
 ];
 
 // VERB ARRAY FOR SELECTION
-//var verbList = ["potere", "essere", "avere", "salire", "colpire", "andare", "cenare", "mangiare"];
+var verbList = ["potere", "essere", "avere", "salire", "colpire", "andare", "cenare", "mangiare"];
 var verbListNotShown = ["potere", "essere", "avere", "salire", "colpire", "andare", "cenare", "mangiare"];
 var verbListShown = [];
 
@@ -227,14 +227,28 @@ var randomVerbIndex = 0;
 
 function updateNotShownNShownLists() {
   verbListShown.push(verbInserted);
+  console.log("Listshown: ")
+  console.log(verbListShown)
+
   verbListNotShown.splice(verbListNotShown.indexOf(verbInserted), 1);
+  console.log("List NOT shown:")
+  console.log(verbListNotShown)
 }
 
 function checkIndexUsed(randomVerbIndex) {
-  if (checkIndexUsedArray.indexOf(randomVerbIndex) === -1) {
-
-  } else {
+  if (checkIndexUsedArray.indexOf(randomVerbIndex) !== -1) {
     getRandomVerb(verbTenses.length)
+  } else {
+    checkIndexUsedArray.push(randomVerbIndex)
+    verbInserted = verbTenses[randomVerbIndex].verb;
+    // // ADD CHECK BOX FUNCTIONALITY
+    // if (checkBoxRegVerbs.checked) {
+    //   showOnlyRegVerbs()
+    // } else if (checkBoxRegVerbs.checked) {
+    //   showOnlyIrrVerbs()
+    // } else {
+    updateNotShownNShownLists()
+    // }
   }
 }
 
@@ -242,25 +256,29 @@ var checkIndexUsedArray = []
 
 function getRandomVerb(verbTensesLength) {
   randomVerbIndex = Math.floor(Math.random() * verbTensesLength);
-  checkIndexUsedArray.push(randomVerbIndex)
   checkIndexUsed(randomVerbIndex)
-  verbInserted = verbTenses[randomVerbIndex].verb;
-  /// ADD CHECK BOX FUNCTIONALITY
-  // if (checkBoxRegVerbs.checked) {
-  //   if (verbTenses[randomVerbIndex][verbInserted].presente.reg_o_irr.form === "regular") {
-  //     getRandomVerb()
-  //   } else {
-  //     updateNotShownNShownLists()
-  //   }
-  // } else if (checkBoxRegVerbs.checked) {
-  //   if (verbTenses[randomVerbIndex][verbInserted].presente.reg_o_irr.form === "irregular") {
-  //     getRandomVerb()
-  //   } else {
-  //     updateNotShownNShownLists()
-  //   }
-  // } else {
-  updateNotShownNShownLists()
-  // }
+}
+
+function showOnlyRegVerbs() {
+  for (var i = 0; i < verbTenses.length; i++) {
+    if (verbTenses[i][verbList[i]].presente.reg_o_irr.form !== "regular") {
+      verbListNotShown = []
+      verbListNotShown.push(verbTenses[i].verb)
+      verbListShown = []
+    }
+    getRandomVerb(verbTenses.length)
+  }
+}
+
+function showOnlyIrrVerbs() {
+  for (var i = 0; i < verbTenses.length; i++) {
+    if (verbTenses[i][verbList[i]].presente.reg_o_irr.form !== "irregular") {
+      verbListNotShown = []
+      verbListNotShown.push(verbTenses[i].verb)
+      verbListShown = []
+    }
+    getRandomVerb(verbTenses.length)
+  }
 }
 
 //ACTION FROM BUTTON CLICK
@@ -305,15 +323,10 @@ function clearBoxes() {
 
 
 
-// var inputBoxes = [io_input, tu_input, lui_input, noi_input, voi_input, loro_input, tranlsate_input]
-// var inputs = ["io", "tu", "lui", "noi", "voi", "loro", "translate"];
-
-
 // CHECKING INDIVIDUAL ANSWERS
 function checkIndividualAnswers() {
   // Getting the values from boxes
   var io_input = document.querySelector(".ioInput").value.toLowerCase();
-  // io_input = io_input
   var tu_input = document.querySelector(".tuInput").value;
   tu_input = tu_input.toLowerCase()
   var lui_input = document.querySelector(".luiInput").value;
@@ -366,23 +379,11 @@ function checkAllAnswersCorr(io_input, tu_input, lui_input, noi_input, voi_input
 function resetVerbList() {
   verbListShown = []
   verbListNotShown = ["potere", "essere", "avere", "salire", "colpire", "andare", "cenare", "mangiare"];
+  checkIndexUsedArray = []
   checkAnswersBtn.style.display = "inline";
   showNewVerbBtn.style.display = "inline";
   tranlsateBox.style.display = "inline";
+  // UNCHECK IRR OR REG BUTTON
   showNewVerb()
   resetVerbListBtn.style.display = "none";
 }
-
-function showOnlyRegVerbs() {
-
-
-}
-
-function showOnlyIrrVerbs() {
-
-}
-
-
-
-
-
