@@ -1,15 +1,11 @@
 PROBLEMS:
     FUNCTIONALITY:
-        -TRANSLATE VERB -- box is showing red with no text in it when CHECK ANSWERS button is pressed, 
-        but conj inputs not unless i put text in Translate input
+        -star list page -- not loading starList items, it's throwing error
+        -
         -MAKE DRYER!!!!!
-            - CHECK INPUT - .value.lowerCase() for all 
-            - UPDATE LISTS () - should I return a value there?
 
     LAYOUT:
-        -GRID - center grid, there is something on the right side blocking it 
-        check it out now haha what is going on? two colums is perfect, label and input in one column, grid gap still not working
-        -CHECK BOXES - move to third column of grid
+        -LORO INPUT - still off by a little 
         
 
 
@@ -23,25 +19,21 @@ PROBLEMS:
 FUNCTIONALITY IDEAS:
 
     PRIMARY:
-        -checkbox for if you want to see which boxes are irregular or regular, 
-        maybe highlight background of input box?
-        -
+        -star list with hover feature to show correct conjugation of verb
+        -MASTER THE VERB respondent must get verb right 3 times to be called mastered, 
+        GET IT RIGHT got all answers correct atleast once, keep track in a bar or numbers
+        -drop down menu to switch tenses, with a button to say "I'm ready" and then show "CHECK ANSWERS" and "SHOW NEXT VERB". Have
+        text for io, tu, lui inputs in english until they pick the language/tenses
 
 
     SECONDARY: 
-        -star button to save verb to starList
-        -MASTER THE VERB respondent must get verb right 3 times to be 
-        taken out of running list, GET IT RIGHT got all answers correct atleast once.
-        -drop down menu to switch tenses, with a button to say "I'm ready" and then show "CHECK ANSWERS" and "SHOW NEXT VERB". Have
-        text for io, tu, lui inputs in english until they pick the language/tenses
-        -show those verbs that the person got completely correct or 
-        a bar? that they mastered or just got correct and the ones left?
         -add portuguese, spanish, italian and english
 
 
     TERTIARY:
         -show the incorrect parts of the answer (maybe added on end after input box?)
-        -star list with hover feature to show correct conjugation of verb
+        -show those verbs that the person got completely correct or 
+        a bar? that they mastered or just got correct and the ones left?
         
         -ability for respondent to add new verb:
             -dropdown menu for tense

@@ -10,11 +10,6 @@ body {
   border: 7px solid white;
 }
 
-.borderAll {
-  /* WHY IS THIS TOO WIDE??!  
-  border: 3px solid white; */
-}
-
 .banner-container{
   width: 80%;
   display: block;
@@ -85,6 +80,10 @@ body {
   color: #c1c1c1
 }
 
+/* .starButton {
+  background-color: grey;
+  color: white;
+} */
 
 
 
@@ -127,10 +126,18 @@ label {
   margin-bottom: 0px;
 }
 
+.starButton {
+  /* width: 20px;
+  height: 20px; */
+  margin: 0 0 0 15px;
+  /* background-color: yellow; */
+  background-color: rgb(252, 255, 232);
+  color: black;
+}
+
 .verbH3Insert {
-  margin: 0px 20px;
+  margin: 0px 20px 0px 10px;
   text-decoration: underline;
-  
 }
 
 .translateInput {
@@ -150,11 +157,10 @@ label {
 .grid {
   text-align: center;
   display: grid;
-
-  grid-template-columns: auto auto 200px;
+  grid-template-columns: auto auto;
   grid-template-rows: auto auto auto;
   justify-content: center;
-  padding: 10px 10px;
+  padding: 10px 10px 0 10px;
   grid-gap: 10px;
 }
 
@@ -183,12 +189,6 @@ label {
   grid-column: 2;
 }
 
-.checkBoxShowIrrConj {
-  grid-row: 1;
-  grid-column: 3;
-
-}
-
 
 button {
   margin: 10px;
@@ -198,8 +198,17 @@ button {
   background-color: #595959;
 }
 
+.checkBoxShowIrrConj {
+  margin-left: 20px;
+  font-size: 15px;
+ }
+
+.checkAnswersBtn {
+  margin-left: 40px
+}
+
 .resetVerbListBtn {
   display: none;
-  margin: 10px;
+  margin: 40px;
   padding: 5px;
 }

@@ -25,6 +25,8 @@ const resetVerbListBtn = document.querySelector(".resetVerbListBtn");
 const checkBoxRegVerbs = document.querySelector(".checkBoxRegVerbs");
 const checkBoxIrrVerbs = document.querySelector(".checkBoxIrrVerbs");
 const checkBoxShowIrrConj = document.querySelector(".checkBoxShowIrrConj");
+const starButton = document.querySelector(".starButton");
+const starListButton = document.querySelector(".starButton");
 
 //ADDING EVENT LISTENER TO BUTTON
 showNewVerbBtn.addEventListener("click", showNewVerb);
@@ -33,6 +35,55 @@ resetVerbListBtn.addEventListener("click", resetVerbList);
 checkBoxRegVerbs.addEventListener("change", checkBothCheckedRegLast);
 checkBoxIrrVerbs.addEventListener("change", checkBothCheckedIrrLast);
 checkBoxShowIrrConj.addEventListener("change", checkBoxIrrVerbConj);
+starButton.addEventListener("click", starChangeOnOrOff);
+// starListButton.addEventListener("click", loadStarVerbs);
+
+var createLi = "";
+var starListItem = "";
+var starList = [];
+
+function loadStarVerbs() {
+  if (starList.length !== 0) {
+    for (var i = 0; i < starList.length; i++) {
+      createLi = document.createElement("LI");
+      starListItem = document.createTextNode(starList[i]);
+      createLi.appendChild(starListItem);
+      document.getElementById("myList").appendChild(starListItem);
+    }
+  } else {
+    createLi = document.createElement("LI");
+    starListItem = document.createTextNode("NO VERBS WERE STARED");
+    createLi.appendChild(starListItem);
+    document.getElementById("myList").appendChild(starListItem);
+  }
+}
+
+var starStatus = "off"
+
+function resetStar() {
+  if (starList.indexOf(verbInserted) === -1) {
+    starButton.style.backgroundColor = "rgb(252, 255, 232)";
+    starStatus = "off"
+  } else if (starList.indexOf(verbInserted) !== -1) {
+    starButton.style.backgroundColor = "rgb(234, 255, 28)";
+    starStatus = "on"
+  }
+}
+
+function starChangeOnOrOff() {
+  if (starStatus === "off") {
+    starButton.style.backgroundColor = "rgb(234, 255, 28)";
+    starStatus = "on"
+    if (starList.indexOf(verbInserted) === -1) {
+      starList.push(verbInserted);
+    }
+  } else if (starStatus === "on") {
+    starButton.style.backgroundColor = "rgb(252, 255, 232)";
+    var starListRemoveIndex = starList.indexOf(verbInserted)
+    starList.splice(starListRemoveIndex, 1);
+    starStatus = "off"
+  }
+}
 
 function checkBoxIrrVerbConj() {
   if (checkBoxShowIrrConj.checked === true) {
@@ -52,7 +103,6 @@ function checkBoxIrrVerbConj() {
     }
   }
 }
-
 
 function checkBothCheckedRegLast() {
   if (checkBoxRegVerbs.checked === true && checkBoxIrrVerbs.checked === true) {
@@ -75,6 +125,7 @@ function checkBothCheckedIrrLast() {
 // Reset VERBS FROM CHECK LIST
 function resetFromCheckBox() {
   clearBoxes()
+  resetStar()
   if (checkBoxIrrVerbs.checked === false && checkBoxRegVerbs.checked === false) {
     resetVerbList()
   } else {
@@ -343,12 +394,16 @@ function showNewVerb() {
   if (verbListNotShown.length !== 0) {
     messageAllAnswersCorrect.innerText = "";
     getRandomVerb(verbTenses.length);
-    console.log(verbListShown)
-    console.log(verbListNotShown)
     verbInsertPlacement.innerText =
       verbInserted.charAt(0).toUpperCase() + verbInserted.slice(1);
     checkBoxShowIrrConj.checked = false
     checkBoxIrrVerbConj()
+    clearBoxes()
+    if (starList.indexOf(verbInserted) !== -1) {
+      resetStar()
+    } else {
+      resetStar()
+    }
   } else {
     messageAllAnswersCorrect.innerText = "";
     verbInsertPlacement.innerText = "Great job, you learned all the verbs! Click the 'RESET VERB LIST' button to study the verbs again.";
@@ -361,6 +416,9 @@ function showResetButton() {
   checkAnswersBtn.style.display = "none";
   showNewVerbBtn.style.display = "none";
   tranlsateBox.style.display = "none";
+  checkBoxShowIrrConj.disabled = true;
+  checkBoxIrrVerbs.disabled = true;
+  checkBoxRegVerbs.disabled = true;
 }
 
 //CLEAR BOXES WHEN showNewVerb IS CLICKED
@@ -387,39 +445,28 @@ function clearBoxes() {
 // CHECKING INDIVIDUAL ANSWERS
 function checkIndividualAnswers() {
   // Getting the values from boxes
-  io_input = document.querySelector(".ioInput").value;
-  io_input = io_input
-  tu_input = document.querySelector(".tuInput").value;
-  tu_input = tu_input.toLowerCase()
-  lui_input = document.querySelector(".luiInput").value;
-  lui_input = lui_input.toLowerCase()
-  noi_input = document.querySelector(".noiInput").value;
-  noi_input = noi_input.toLowerCase()
-  voi_input = document.querySelector(".voiInput").value;
-  voi_input = voi_input.toLowerCase()
-  loro_input = document.querySelector(".loroInput").value;
-  loro_input = loro_input.toLowerCase()
-  tranlsate_input = document.querySelector(".translateInput").value;
-  tranlsate_input = tranlsate_input.toLowerCase()
+  io_input = document.querySelector(".ioInput").value.toLowerCase();
+  tu_input = document.querySelector(".tuInput").value.toLowerCase();
+  lui_input = document.querySelector(".luiInput").value.toLowerCase();
+  noi_input = document.querySelector(".noiInput").value.toLowerCase();
+  voi_input = document.querySelector(".voiInput").value.toLowerCase();
+  loro_input = document.querySelector(".loroInput").value.toLowerCase();
+  tranlsate_input = document.querySelector(".translateInput").value.toLowerCase();
 
   var inputBoxes = [io_input, tu_input, lui_input, noi_input, voi_input, loro_input, tranlsate_input]
   var inputs = ["io", "tu", "lui", "noi", "voi", "loro", "translate"];
 
   for (var i = 0; i < inputBoxes.length; i++) {
-    // Problem has to do with this part, how do I fix?
-    if (inputBoxes[i] === tranlsate_input) {
-      if (tranlsate_input === verbTenses[randomVerbIndex][verbInserted].translate) {
-        document.querySelector(".translateInput").style.border = "4px solid green";
-      } else {
-        document.querySelector(".translateInput").style.border = "4px solid red";
-      }
+    if (inputBoxes[i] === verbTenses[randomVerbIndex][verbInserted].presente[inputs[i]]) {
+      answerBoxes[i].style.border = "4px solid green";
     } else {
-      if (inputBoxes[i] === verbTenses[randomVerbIndex][verbInserted].presente[inputs[i]]) {
-        answerBoxes[i].style.border = "4px solid green";
-      } else {
-        answerBoxes[i].style.border = "4px solid red";
-      }
+      answerBoxes[i].style.border = "4px solid red";
     }
+  }
+  if (tranlsate_input === verbTenses[randomVerbIndex][verbInserted].translate) {
+    document.querySelector(".translateInput").style.border = "4px solid green";
+  } else {
+    document.querySelector(".translateInput").style.border = "4px solid red";
   }
   checkAllAnswersCorr(io_input, tu_input, lui_input, noi_input, voi_input, loro_input, tranlsate_input)
 }
@@ -440,10 +487,16 @@ function checkAllAnswersCorr(io_input, tu_input, lui_input, noi_input, voi_input
 
 function resetVerbList() {
   verbListShown = []
-  verbListNotShown = ["potere", "essere", "avere", "salire", "colpire", "andare", "cenare", "mangiare"];
+  verbListNotShown = [];
+  for (var i = 0; i < verbTenses.length; i++) {
+    verbListNotShown.push(verbTenses[i].verb)
+  }
   checkAnswersBtn.style.display = "inline";
   showNewVerbBtn.style.display = "inline";
   tranlsateBox.style.display = "inline";
+  checkBoxShowIrrConj.disabled = false;
+  checkBoxIrrVerbs.disabled = false;
+  checkBoxRegVerbs.disabled = false;
   if (checkBoxRegVerbs.checked === true) {
     checkBoxRegVerbs.checked = false;
   }
