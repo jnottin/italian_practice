@@ -30,38 +30,60 @@ const checkBoxIrrVerbs = document.querySelector(".checkBoxIrrVerbs");
 showNewVerbBtn.addEventListener("click", showNewVerb);
 checkAnswersBtn.addEventListener("click", checkIndividualAnswers);
 resetVerbListBtn.addEventListener("click", resetVerbList);
-checkBoxRegVerbs.addEventListener("change", resetFromCheckBox);
-checkBoxIrrVerbs.addEventListener("change", resetFromCheckBox);
+checkBoxRegVerbs.addEventListener("change", checkBothCheckedRegLast);
+checkBoxIrrVerbs.addEventListener("change", checkBothCheckedIrrLast);
+
+
+function checkBothCheckedRegLast() {
+  if (checkBoxRegVerbs.checked === true && checkBoxIrrVerbs.checked === true) {
+    checkBoxRegVerbs.checked = false
+    alert("You cannot check both Irregular only and Regular Only. Pick only one or do not select either to get the full verb list.")
+  } else {
+    resetFromCheckBox()
+  }
+}
+
+function checkBothCheckedIrrLast() {
+  if (checkBoxRegVerbs.checked === true && checkBoxIrrVerbs.checked === true) {
+    checkBoxIrrVerbs.checked = false
+    alert("You cannot check both Irregular only and Regular Only. Pick only one or do not select either to get the full verb list.")
+  } else {
+    resetFromCheckBox()
+  }
+}
 
 // Reset VERBS FROM CHECK LIST
 function resetFromCheckBox() {
-  verbListShown = []
-  verbListNotShown = ["potere", "essere", "avere", "salire", "colpire", "andare", "cenare", "mangiare"];
-  checkIndexUsedArray = []
-  if (checkBoxRegVerbs.checked) {
-    showOnlyRegVerbs()
-  } else if (checkBoxIrrVerbs.checked) {
-    showOnlyIrrVerbs()
+  if (checkBoxIrrVerbs.checked === false && checkBoxRegVerbs.checked === false) {
+    resetVerbList()
+  } else {
+    verbListShown = []
+    checkIndexUsedArray = []
+    if (checkBoxRegVerbs.checked === true) {
+      showOnlyRegVerbs()
+    } else if (checkBoxIrrVerbs.checked === true) {
+      showOnlyIrrVerbs()
+    }
   }
 }
 
 function showOnlyRegVerbs() {
+  verbListNotShown = []
+  verbListShown = []
   for (var i = 0; i < verbTenses.length; i++) {
-    if (verbTenses[i][verbList[i]].presente.reg_o_irr.form !== "regular") {
-      verbListNotShown = []
+    if (verbTenses[i][verbList[i]].presente.reg_o_irr.form === "regular") {
       verbListNotShown.push(verbTenses[i].verb)
-      verbListShown = []
     }
   }
   showNewVerb()
 }
 
 function showOnlyIrrVerbs() {
+  verbListNotShown = []
+  verbListShown = []
   for (var i = 0; i < verbTenses.length; i++) {
-    if (verbTenses[i][verbList[i]].presente.reg_o_irr.form !== "irregular") {
-      verbListNotShown = []
+    if (verbTenses[i][verbList[i]].presente.reg_o_irr.form === "irregular") {
       verbListNotShown.push(verbTenses[i].verb)
-      verbListShown = []
     }
   }
   showNewVerb()
@@ -253,6 +275,8 @@ var verbTenses = [
 
 // VERB ARRAY FOR SELECTION
 var verbList = ["potere", "essere", "avere", "salire", "colpire", "andare", "cenare", "mangiare"];
+
+//MAKE THIS INTO A MAP CREATE AN ARRAY THING!!!
 var verbListNotShown = ["potere", "essere", "avere", "salire", "colpire", "andare", "cenare", "mangiare"];
 var verbListShown = [];
 
@@ -262,22 +286,34 @@ var randomVerbIndex = 0;
 function updateNotShownNShownLists() {
   verbListShown.push(verbInserted);
   verbListNotShown.splice(verbListNotShown.indexOf(verbInserted), 1);
+  console.log(verbListNotShown)
+  console.log(verbListShown)
 }
 
-function checkIndexUsed(randomVerbIndex) {
-  if (checkIndexUsedArray.indexOf(randomVerbIndex) !== -1) {
-    getRandomVerb(verbTenses.length)
-  } else {
-    checkIndexUsedArray.push(randomVerbIndex)
-    verbInserted = verbTenses[randomVerbIndex].verb;
-    updateNotShownNShownLists()
-  }
-}
 
-var checkIndexUsedArray = []
+// DO NOT CHANGE VERBTENSES.LENGTH!!! - need that lengtth because your indexes are based on object which does not change
+
+//////HEREEEEEE!!!!
 function getRandomVerb(verbTensesLength) {
   randomVerbIndex = Math.floor(Math.random() * verbTensesLength);
-  checkIndexUsed(randomVerbIndex)
+  verbInserted = verbTenses[randomVerbIndex].verb
+  //Below shows if verb is in VerbListShown
+  if (verbListShown.indexOf(verbInserted) !== -1) {
+    getRandomVerb(verbTenses.length)
+  } else {
+    if (checkBoxRegVerbs.checked === true && verbTenses[randomVerbIndex][verbInserted].presente.reg_o_irr.form === "regular") {
+      updateNotShownNShownLists()
+    } else if (checkBoxRegVerbs.checked === true && verbTenses[randomVerbIndex][verbInserted].presente.reg_o_irr.form !== "regular") {
+      getRandomVerb(verbTenses.length)
+    } else if (checkBoxIrrVerbs.checked === true && verbTenses[randomVerbIndex][verbInserted].presente.reg_o_irr.form === "irregular") {
+      updateNotShownNShownLists()
+    } else if (checkBoxIrrVerbs.checked === true && verbTenses[randomVerbIndex][verbInserted].presente.reg_o_irr.form !== "irregular") {
+      getRandomVerb(verbTenses.length)
+    } else if (checkBoxIrrVerbs.checked === false && checkBoxRegVerbs.checked === false) {
+      /// if none of the boxes are checked
+      updateNotShownNShownLists()
+    }
+  }
 }
 
 //ACTION FROM BUTTON CLICK
@@ -378,11 +414,15 @@ function checkAllAnswersCorr(io_input, tu_input, lui_input, noi_input, voi_input
 function resetVerbList() {
   verbListShown = []
   verbListNotShown = ["potere", "essere", "avere", "salire", "colpire", "andare", "cenare", "mangiare"];
-  checkIndexUsedArray = []
   checkAnswersBtn.style.display = "inline";
   showNewVerbBtn.style.display = "inline";
   tranlsateBox.style.display = "inline";
-  // UNCHECK IRR OR REG BUTTON
+  if (checkBoxRegVerbs.checked === true) {
+    checkBoxRegVerbs.checked = false;
+  }
+  if (checkBoxIrrVerbs.checked === true) {
+    checkBoxIrrVerbs.checked = false;
+  }
   showNewVerb()
   resetVerbListBtn.style.display = "none";
 }

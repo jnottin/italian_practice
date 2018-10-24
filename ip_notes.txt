@@ -1,12 +1,11 @@
 PROBLEMS:
     FUNCTIONALITY:
-         -TRANSLATE VERB -- box is showing red with no text in it when CHECK ANSWERS button is pressed, 
+        -TRANSLATE VERB -- box is showing red with no text in it when CHECK ANSWERS button is pressed, 
         but conj inputs not unless i put text in Translate input
-        - CHECK BOXES - when box is checked only one verb is shown, only one verb shown
-        same with the irregular side. but it goes back to regular list when unchecked so thats good,
-        ALSO make alert for when one box is checked and respondent tries to check another
-        ALSO showed reset button for some reason
+        -verbList and verbListNotShown need to be .map() to create new arrays from the object
         -MAKE DRYER!!!!!
+            - CHECK INPUT - .value.lowerCase() for all 
+            - UPDATE LISTS () - should I return a value there?
 
     LAYOUT:
         -GRID - center grid, there is something on the right side blocking it 
@@ -101,21 +100,9 @@ QUESTIONS:
 
 
 
-1. a.    //??how can i get this to work, it's something like this
-    // var input_boxes = ["io", "tu", "lui", "noi", "voi", "loro"];
-    // for (var i = 0; i < input_boxes.length; i++) {
-    //   input_boxes[i]_input = document.querySelector("myText").value;
-    // }
+1. 
 
-
-2. a. "getting values from boxes" the io_input, tu_input etc why can this not be outside of the checkAnswers() function?
-    b. can I add toLowerCase to some other line to condense a little? 
-
-
-3. why is querySelectorAll not working for clearing all input values?
-
-4. button RESET VERB LIST, i put var verbListNotShown = verbList; it seems like that is makeing verblist lose verbs 
-from SHOW NEW VERB but verbListNotShown should be the one losing verbs. Now i have to duplicate the array everywhere
+2. 
 
 5. CSS question, showVerbSection display: inline does not put items inline. Why?
 
