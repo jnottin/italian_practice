@@ -14,7 +14,6 @@ var answerBoxes = [ioBox, tuBox, luiBox, noiBox, voiBox, loroBox, tranlsateBox]
 var inputBoxes = [ioBox.value, tuBox.value, luiBox.value, noiBox.value, voiBox.value, loroBox.value]
 var inputs = ["io", "tu", "lui", "noi", "voi", "loro", "translate"];
 
-
 //EFFECT OF BUTTON CLICK
 const verbInsertPlacement = document.querySelector(".verbH3Insert");
 const messageAllAnswersCorrect = document.querySelector(".messageAllAnswersCorrect");
@@ -25,6 +24,7 @@ const checkAnswersBtn = document.querySelector(".checkAnswersBtn");
 const resetVerbListBtn = document.querySelector(".resetVerbListBtn");
 const checkBoxRegVerbs = document.querySelector(".checkBoxRegVerbs");
 const checkBoxIrrVerbs = document.querySelector(".checkBoxIrrVerbs");
+const checkBoxShowIrrConj = document.querySelector(".checkBoxShowIrrConj");
 
 //ADDING EVENT LISTENER TO BUTTON
 showNewVerbBtn.addEventListener("click", showNewVerb);
@@ -32,6 +32,26 @@ checkAnswersBtn.addEventListener("click", checkIndividualAnswers);
 resetVerbListBtn.addEventListener("click", resetVerbList);
 checkBoxRegVerbs.addEventListener("change", checkBothCheckedRegLast);
 checkBoxIrrVerbs.addEventListener("change", checkBothCheckedIrrLast);
+checkBoxShowIrrConj.addEventListener("change", checkBoxIrrVerbConj);
+
+function checkBoxIrrVerbConj() {
+  if (checkBoxShowIrrConj.checked === true) {
+    if (verbTenses[randomVerbIndex][verbInserted].presente.reg_o_irr.form === "irregular") {
+      for (var i = 0; i < answerBoxes.length; i++) {
+        if (verbTenses[randomVerbIndex][verbInserted].presente.reg_o_irr.irrPlaces[i] === "yes") {
+          answerBoxes[i].style.backgroundColor = "yellow";
+        } else if (verbTenses[randomVerbIndex][verbInserted].presente.reg_o_irr.irrPlaces[i] === "no") {
+          answerBoxes[i].style.backgroundColor = "";
+        }
+      }
+    } else if (verbTenses[randomVerbIndex][verbInserted].presente.reg_o_irr.form === "regular") {
+    }
+  } else if (checkBoxShowIrrConj.checked === false) {
+    for (var i = 0; i < answerBoxes.length; i++) {
+      answerBoxes[i].style.backgroundColor = "";
+    }
+  }
+}
 
 
 function checkBothCheckedRegLast() {
@@ -54,6 +74,7 @@ function checkBothCheckedIrrLast() {
 
 // Reset VERBS FROM CHECK LIST
 function resetFromCheckBox() {
+  clearBoxes()
   if (checkBoxIrrVerbs.checked === false && checkBoxRegVerbs.checked === false) {
     resetVerbList()
   } else {
@@ -107,7 +128,7 @@ var verbTenses = [
         loro: "possono",
         reg_o_irr: {
           form: "irregular",
-          // irrPlaces: [io_input, tu_input, lui_input, noi_input, loro_input]
+          irrPlaces: ["yes", "yes", "yes", "yes", "no", "yes"]
         },
       },
       // passato_prossimo: {
@@ -140,7 +161,7 @@ var verbTenses = [
         loro: "sono",
         reg_o_irr: {
           form: "irregular",
-          // irrPlaces: [io_input, tu_input, lui_input, noi_input, voi_input, loro_input]
+          irrPlaces: ["yes", "yes", "yes", "yes", "yes", "yes"]
         },
       },
     },
@@ -161,7 +182,7 @@ var verbTenses = [
         loro: "hanno",
         reg_o_irr: {
           form: "irregular",
-          // irrPlaces: [io_input, tu_input, lui_input, noi_input, voi_input, loro_input]
+          irrPlaces: ["yes", "yes", "yes", "yes", "yes", "yes"]
         }
       },
     },
@@ -182,7 +203,7 @@ var verbTenses = [
         loro: "salgono",
         reg_o_irr: {
           form: "irregular",
-          // irrPlaces: [io_input, loro_input]
+          irrPlaces: ["yes", "no", "no", "no", "no", "yes"]
         }
       },
     },
@@ -203,7 +224,7 @@ var verbTenses = [
         loro: "colpiscono",
         reg_o_irr: {
           form: "irregular",
-          // irrPlaces: [io_input, tu_input, lui_input, loro_input]
+          irrPlaces: ["yes", "yes", "yes", "no", "no", "yes"]
         },
       },
     },
@@ -224,7 +245,7 @@ var verbTenses = [
         loro: "vanno",
         reg_o_irr: {
           form: "irregular",
-          // irrPlaces: [io_input, tu_input, lui_input, loro_input]
+          irrPlaces: ["yes", "yes", "yes", "no", "no", "yes"]
         },
       },
     },
@@ -245,7 +266,7 @@ var verbTenses = [
         loro: "cenano",
         reg_o_irr: {
           form: "regular",
-          // irrPlaces: []
+          irrPlaces: []
         }
       },
     },
@@ -266,7 +287,7 @@ var verbTenses = [
         loro: "mangiano",
         reg_o_irr: {
           form: "regular",
-          // irrPlaces: []
+          irrPlaces: []
         }
       }
     }
@@ -274,11 +295,14 @@ var verbTenses = [
 ];
 
 // VERB ARRAY FOR SELECTION
-var verbList = ["potere", "essere", "avere", "salire", "colpire", "andare", "cenare", "mangiare"];
-
-//MAKE THIS INTO A MAP CREATE AN ARRAY THING!!!
-var verbListNotShown = ["potere", "essere", "avere", "salire", "colpire", "andare", "cenare", "mangiare"];
+var verbList = [];
+var verbListNotShown = [];
 var verbListShown = [];
+
+for (var i = 0; i < verbTenses.length; i++) {
+  verbList.push(verbTenses[i].verb)
+  verbListNotShown.push(verbTenses[i].verb)
+}
 
 var verbInserted = "";
 var randomVerbIndex = 0;
@@ -286,8 +310,6 @@ var randomVerbIndex = 0;
 function updateNotShownNShownLists() {
   verbListShown.push(verbInserted);
   verbListNotShown.splice(verbListNotShown.indexOf(verbInserted), 1);
-  console.log(verbListNotShown)
-  console.log(verbListShown)
 }
 
 
@@ -321,8 +343,12 @@ function showNewVerb() {
   if (verbListNotShown.length !== 0) {
     messageAllAnswersCorrect.innerText = "";
     getRandomVerb(verbTenses.length);
+    console.log(verbListShown)
+    console.log(verbListNotShown)
     verbInsertPlacement.innerText =
       verbInserted.charAt(0).toUpperCase() + verbInserted.slice(1);
+    checkBoxShowIrrConj.checked = false
+    checkBoxIrrVerbConj()
   } else {
     messageAllAnswersCorrect.innerText = "";
     verbInsertPlacement.innerText = "Great job, you learned all the verbs! Click the 'RESET VERB LIST' button to study the verbs again.";
@@ -361,18 +387,19 @@ function clearBoxes() {
 // CHECKING INDIVIDUAL ANSWERS
 function checkIndividualAnswers() {
   // Getting the values from boxes
-  var io_input = document.querySelector(".ioInput").value.toLowerCase();
-  var tu_input = document.querySelector(".tuInput").value;
+  io_input = document.querySelector(".ioInput").value;
+  io_input = io_input
+  tu_input = document.querySelector(".tuInput").value;
   tu_input = tu_input.toLowerCase()
-  var lui_input = document.querySelector(".luiInput").value;
+  lui_input = document.querySelector(".luiInput").value;
   lui_input = lui_input.toLowerCase()
-  var noi_input = document.querySelector(".noiInput").value;
+  noi_input = document.querySelector(".noiInput").value;
   noi_input = noi_input.toLowerCase()
-  var voi_input = document.querySelector(".voiInput").value;
+  voi_input = document.querySelector(".voiInput").value;
   voi_input = voi_input.toLowerCase()
-  var loro_input = document.querySelector(".loroInput").value;
+  loro_input = document.querySelector(".loroInput").value;
   loro_input = loro_input.toLowerCase()
-  var tranlsate_input = document.querySelector(".translateInput").value;
+  tranlsate_input = document.querySelector(".translateInput").value;
   tranlsate_input = tranlsate_input.toLowerCase()
 
   var inputBoxes = [io_input, tu_input, lui_input, noi_input, voi_input, loro_input, tranlsate_input]
@@ -423,6 +450,7 @@ function resetVerbList() {
   if (checkBoxIrrVerbs.checked === true) {
     checkBoxIrrVerbs.checked = false;
   }
+  checkBoxShowIrrConj.checked = false
   showNewVerb()
   resetVerbListBtn.style.display = "none";
 }

@@ -114,6 +114,9 @@ body {
   margin: auto;
 }
 
+label {
+  margin-right: 5px;
+}
 
 .inlineConjugate {
   display: inline-block;
@@ -148,59 +151,42 @@ body {
   text-align: center;
   display: grid;
 
-  grid-template-columns: auto auto;
+  grid-template-columns: auto auto 200px;
   grid-template-rows: auto auto auto;
   justify-content: center;
   padding: 10px 10px;
+  grid-gap: 10px;
 }
 
-.iolabel {
-  grid-row: 1;
-  grid-column: 1;
-}
 .ioinput {
   grid-row: 1;
-  grid-column: 2;
-}
-.tulabel {
-  grid-row: 2;
   grid-column: 1;
 }
 .tuInput {
   grid-row: 2;
-  grid-column: 2;
-}
-.luilabel {
-  grid-row: 3;
   grid-column: 1;
 }
 .luiInput {
   grid-row: 3;
-  grid-column: 2;
+  grid-column: 1;
 } 
-.noilabel {
-  grid-row: 1;
-  grid-column: 3;
-}
 .noiInput {
   grid-row: 1;
-  grid-column: 4;
-}
-.voilabel {
-  grid-row: 2;
-  grid-column: 3;
+  grid-column: 2;
 }
 .voiInput {
   grid-row: 2;
-  grid-column: 4;
-}
-.lorolabel {
-  grid-row: 3;
-  grid-column: 3;
+  grid-column: 2;
 }
 .loroInput {
   grid-row: 3;
-  grid-column: 4;
+  grid-column: 2;
+}
+
+.checkBoxShowIrrConj {
+  grid-row: 1;
+  grid-column: 3;
+
 }
 
 

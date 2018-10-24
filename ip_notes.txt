@@ -2,7 +2,6 @@ PROBLEMS:
     FUNCTIONALITY:
         -TRANSLATE VERB -- box is showing red with no text in it when CHECK ANSWERS button is pressed, 
         but conj inputs not unless i put text in Translate input
-        -verbList and verbListNotShown need to be .map() to create new arrays from the object
         -MAKE DRYER!!!!!
             - CHECK INPUT - .value.lowerCase() for all 
             - UPDATE LISTS () - should I return a value there?
@@ -24,27 +23,20 @@ PROBLEMS:
 FUNCTIONALITY IDEAS:
 
     PRIMARY:
-        -PRESS ENTER causes checkAnswers function to run, eventListener on ENTER?
-        -SOME KEY maybe up? adds all answers to inputs
-        -??MAYBE?? input box for whether verb is irr or reg
         -checkbox for if you want to see which boxes are irregular or regular, 
         maybe highlight background of input box?
-        -"SKIP VERB" button to allow respondent to skip the verb but have it shown again later,
-        just add back to verbListNotShown
-        -ALERT if SHOW NEXT VERB button is clicked without getting all answers correct
-        "press SKIP VERB or try again"
-    
+        -
+
 
     SECONDARY: 
         -star button to save verb to starList
-        -add portuguese, spanish, italian and english
         -MASTER THE VERB respondent must get verb right 3 times to be 
         taken out of running list, GET IT RIGHT got all answers correct atleast once.
         -drop down menu to switch tenses, with a button to say "I'm ready" and then show "CHECK ANSWERS" and "SHOW NEXT VERB". Have
         text for io, tu, lui inputs in english until they pick the language/tenses
         -show those verbs that the person got completely correct or 
         a bar? that they mastered or just got correct and the ones left?
-        -have a button for only reg or irregular verbs
+        -add portuguese, spanish, italian and english
 
 
     TERTIARY:
@@ -55,7 +47,10 @@ FUNCTIONALITY IDEAS:
             -dropdown menu for tense
             -dropdown for language
             -inputs for (io, tu, lui etc)
-
+         -"SKIP VERB" button to allow respondent to skip the verb but have it shown again later,
+            just add back to verbListNotShown
+        -ALERT if SHOW NEXT VERB button is clicked without getting all answers correct
+            "press SKIP VERB or try again"
 
 
 
