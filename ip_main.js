@@ -42,6 +42,10 @@ const starButton = document.querySelector(".starButton");
 const starListButton = document.querySelector(".starButton");
 const selectLanguageBtn = document.querySelector(".selectLanguageBtn");
 const h3VerbToConjuText = document.querySelector(".h3VerbToConjuText");
+const selectLanguageSpanish = document.querySelector(".selectLanguageSpanish");
+const selectLanguageItalian = document.querySelector(".selectLanguageItalian");
+const selectLanguagePortuguese = document.querySelector(".selectLanguagePortuguese");
+
 
 
 //ADDING EVENT LISTENER TO BUTTON
@@ -53,7 +57,10 @@ checkBoxIrrVerbs.addEventListener("change", checkBothCheckedIrrLast);
 checkBoxShowIrrConj.addEventListener("change", checkBoxIrrVerbConj);
 starButton.addEventListener("click", starChangeOnOrOff);
 // starListButton.addEventListener("click", loadStarVerbs);
-selectLanguageBtn.addEventListener("click", setALanguage);
+// selectLanguageBtn.addEventListener("click", setALanguage);
+selectLanguageSpanish.addEventListener("click", setALanguageSpanish);
+selectLanguageItalian.addEventListener("click", setALanguageItalian);
+selectLanguagePortuguese.addEventListener("click", setALanguagePortuguese);
 
 function pageLoad() {
   checkAnswersBtn.disabled = true;
@@ -90,23 +97,25 @@ function settingsForLanguageSelected() {
 }
 
 var languageSelected = "italian"
-function setALanguage() {
-  if (languageSelected === "italian") {
-    verbTenses = verbTensesSpanish
-    languageSelected = "spanish"
-    settingsForLanguageSelected()
-    resetVerbList()
-  } else if (languageSelected === "spanish") {
-    verbTenses = verbTensesPortuguese
-    languageSelected = "portuguese"
-    settingsForLanguageSelected()
-    resetVerbList()
-  } else if (languageSelected === "portuguese") {
-    verbTenses = verbTensesItalian
-    languageSelected = "italian"
-    settingsForLanguageSelected()
-    resetVerbList()
-  }
+function setALanguageSpanish() {
+  verbTenses = verbTensesSpanish
+  languageSelected = "spanish"
+  settingsForLanguageSelected()
+  resetVerbList()
+}
+
+function setALanguagePortuguese() {
+  verbTenses = verbTensesPortuguese
+  languageSelected = "portuguese"
+  settingsForLanguageSelected()
+  resetVerbList()
+}
+
+function setALanguageItalian() {
+  verbTenses = verbTensesItalian
+  languageSelected = "italian"
+  settingsForLanguageSelected()
+  resetVerbList()
 }
 
 

@@ -93,7 +93,7 @@ body {
   background-color: gold;
 }
 
-/* .dropdown {
+.dropdown {
   position: relative;
   display: inline-block;
 }
@@ -108,9 +108,26 @@ body {
   z-index: 1;
 }
 
+.dropdown-content a {
+  display: block;
+  background-color: #FFD1D1;
+  text-decoration: none;
+  font-weight: bold;
+  color: #595959;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+/* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
   display: block;
-} */
+}
+
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
 
 .verb-section {
   background-color: rgba(176, 203, 139, .9);
