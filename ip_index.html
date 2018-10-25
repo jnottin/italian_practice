@@ -10,93 +10,94 @@
     <link href="https://fonts.googleapis.com/css?family=Mali" rel="stylesheet">
 </head>
 
-<body onload="makeVerbLists();">
+<body onload="pageLoad();">
     <div class="borderAll">
         <div class="banner-container">
             <div class="title">Conjugate This!</div>
-            <div class="sub-header">Pick a language and verb tense below, then press <u>'SHOW NEW VERB'</u> button to
-                practice
+            <div class="sub-header">Pick a language and verb tense below, then you can start practicing
                 your first verb!</div>
-            <img class="banner-image" src="img/italy_banner.jpg" alt="Italian City">
+            <img class="banner-image" src="img/earth_banner.jpg" alt="Italian City">
         </div>
+        <div class="navNverbs">
+            <ul class="nav">
+                <li><a class="nav-bar selectLanguageBtn" href="#">Select A Language</a></li>
+                <li><a class="nav-bar selectVerbTense" href="#">Select A Verb Tense</a></li>
+                <li><a class="nav-bar starList" href="starList.html">Star List</a></li>
+                <li></li><input class="checkBox checkBoxRegVerbs" type="checkbox"> Only Regular Verbs</li>
+                <li></li><input class="checkbox checkBoxIrrVerbs" type="checkbox"> Only Irregular Verbs</li>
+                <!-- <li><a href="#">Only Regular Verbs</a></li>
+                <li><a href="#">Only Irregular Verbs</a></li> -->
 
-        <ul class="nav">
-            <li><a class="nav-bar selectLanguageBtn" href="#">Select A Language</a></li>
-            <li><a class="nav-bar selectVerbTense" href="#">Select A Verb Tense</a></li>
-            <li><a class="nav-bar starList" href="starList.html">Star List</a></li>
-            <li></li><input class="checkBox checkBoxRegVerbs" type="checkbox"> Only Regular Verbs</li>
-            <li></li><input class="checkbox checkBoxIrrVerbs" type="checkbox"> Only Irregular Verbs</li>
-            <!-- <li><a href="#">Only Regular Verbs</a></li>
-            <li><a href="#">Only Irregular Verbs</a></li> -->
 
 
+                <!-- <li>
+                    <div class="dropdown language-dropdown">
+                        <button class="dropbtn language-dropdown">Select A Language</button>
+                        <div class="dropdown-content language-content">
+                            <a href="#">Italian</a>
+                            <a href="#">Spanish</a>
+                            <a href="#">Portuguese</a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="dropdown-content dropdown tense-dropdown">
+                        <button class="dropbtn tense-dropdown">Select A Language</button>
+                        <div class="dropdown-content tense-content">
+                            <a href="#">Present</a>
+                            <a href="#">Simple Past</a>
+                            <a href="#">Simple Future</a>
+                        </div>
+                    </div>
+                </li> -->
+            </ul>
 
-            <!-- <li>
-                <div class="dropdown language-dropdown">
-                    <button class="dropbtn language-dropdown">Select A Language</button>
-                    <div class="dropdown-content language-content">
-                        <a href="#">Italian</a>
-                        <a href="#">Spanish</a>
-                        <a href="#">Portuguese</a>
+            <div class="verb-section">
+                <div class="showVerbSection">
+                    <h3 class="h3VerbToConjuText inlineConjugate">Verb to conjugate and translate is: </h3>
+                    <button class="starButton">STAR THIS VERB!</button>
+                    <!-- <a href="#" class="starButton"><img class="starButton" src="img/star_image.png" alt="Star Button"></a> -->
+                    <h3 class="inlineConjugate verbH3Insert"></h3>
+                    <input type="text" class="inlineConjugate translateInput" name="translateVerb" id="" placeholder="Translate verb to English...">
+                    <button class="showNewVerbBtn">SHOW NEW VERB</button>
+                    <h3 class="inlineConjugate messageAllAnswersCorrect"></h3>
+                </div>
+                <div class="grid">
+                    <div class="column1">
+                        <div>
+                            <label class="ioLabel label1 inputlabel ">i: </label>
+                            <input class="ioInput inputBox" type="text" name="ioForm" id="" placeholder="Conjugate 'I' form...">
+                        </div>
+                        <div>
+                            <label class="tuLabel label2 inputlabel ">you: </label>
+                            <input class="tuInput inputBox" type="text" name="tuForm" id="" placeholder="Conjugate 'You' form...">
+                        </div>
+                        <div>
+                            <label class="luiLabel label3 inputlabel ">he/she/it: </label>
+                            <input class="luiInput inputBox" type="text" name="luiForm" id="" placeholder="Conjugate 'He/She/It' form...">
+                        </div>
+                    </div>
+                    <div class="column2">
+                        <div>
+                            <label class="noiLabel label4 inputlabel ">us: </label>
+                            <input class="noiInput inputBox" type="text" name="noiForm" id="" placeholder="Conjugate 'We' form...">
+                        </div>
+                        <div>
+                            <label class="voiLabel label5 inputlabel ">you all: </label>
+                            <input class="voiInput inputBox" type="text" name="voiForm" id="" placeholder="Conjugate 'You all' form...">
+                        </div>
+                        <div>
+                            <label class="loroLabel label6 inputlabel ">they: </label>
+                            <input class="loroInput inputBox" type="text" name="loroForm" id="" placeholder="Conjugate 'They' form...">
+                        </div>
                     </div>
                 </div>
-            </li>
-            <li>
-                <div class="dropdown-content dropdown tense-dropdown">
-                    <button class="dropbtn tense-dropdown">Select A Language</button>
-                    <div class="dropdown-content tense-content">
-                        <a href="#">Present</a>
-                        <a href="#">Simple Past</a>
-                        <a href="#">Simple Future</a>
-                    </div>
-                </div>
-            </li> -->
-        </ul>
-
-        <div class="verb-section">
-            <div class="showVerbSection">
-                <h3 class="inlineConjugate">Verb to conjugate and translate is: </h3>
-                <button class="starButton">STAR THIS VERB!</button>
-                <!-- <a href="#" class="starButton"><img class="starButton" src="img/star_image.png" alt="Star Button"></a> -->
-                <h3 class="inlineConjugate verbH3Insert"></h3>
-                <input type="text" class="inlineConjugate translateInput" name="translateVerb" id="" placeholder="Translate verb to English...">
-                <button class="showNewVerbBtn">SHOW NEW VERB</button>
-                <h3 class="inlineConjugate messageAllAnswersCorrect"></h3>
+                </li class="checkBoxShowIrrConj"><input class="checkbox checkBoxShowIrrConj" type="checkbox"> Show
+                Boxes
+                With Irregular Conjugation</li>
+                <button class="checkAnswersBtn">CHECK MY ANSWERS</button>
+                <button class="resetVerbListBtn">RESET VERB LIST</button>
             </div>
-            <div class="grid">
-                <div class="column1">
-                    <div>
-                        <label class="ioLabel">io: </label>
-                        <input class="ioInput inputBox" type="text" name="ioForm" id="" placeholder="Conjugate 'I' form...">
-                    </div>
-                    <div>
-                        <label class="tuLabel">tu: </label>
-                        <input class="tuInput inputBox" type="text" name="tuForm" id="" placeholder="Conjugate 'You' form...">
-                    </div>
-                    <div>
-                        <label class="luiLabel">lui: </label>
-                        <input class="luiInput inputBox" type="text" name="luiForm" id="" placeholder="Conjugate 'He/She/It' form...">
-                    </div>
-                </div>
-                <div class="column2">
-                    <div>
-                        <label class="noiLabel">noi: </label>
-                        <input class="noiInput inputBox" type="text" name="noiForm" id="" placeholder="Conjugate 'We' form...">
-                    </div>
-                    <div>
-                        <label class="voiLabel">voi: </label>
-                        <input class="voiInput inputBox" type="text" name="voiForm" id="" placeholder="Conjugate 'You all' form...">
-                    </div>
-                    <div>
-                        <label class="loroLabel">loro: </label>
-                        <input class="loroInput inputBox" type="text" name="loroForm" id="" placeholder="Conjugate 'They' form...">
-                    </div>
-                </div>
-            </div>
-            </li class="checkBoxShowIrrConj"><input class="checkbox checkBoxShowIrrConj" type="checkbox"> Show Boxes
-            With Irregular Conjugation</li>
-            <button class="checkAnswersBtn">CHECK MY ANSWERS</button>
-            <button class="resetVerbListBtn">RESET VERB LIST</button>
         </div>
     </div>
     <script src="ip_main.js"></script>

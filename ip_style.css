@@ -1,17 +1,13 @@
-/* html {
-  background-color: beige;
-} */
-
 body {
   background-color: grey;
   margin: 10px;
   padding: 10px;
   font-family: "Mali", cursive;
-  border: 7px solid white;
+  border: 7px outset white;
 }
 
 .banner-container{
-  width: 80%;
+  width: 90%;
   display: block;
   margin: auto;
 }
@@ -19,7 +15,7 @@ body {
 .banner-image{
   width: 100%;
   display: block;
-  border: 2px solid white;
+  border: 2px outset white;
 }
 
 .title {
@@ -33,6 +29,8 @@ body {
   transform: translate(-50%, -50%);
   background: #595959;
   border-radius: 25px;
+  border: 2px solid white;
+  box-shadow: 5px 10px #888888;
 }
 
 .sub-header {
@@ -43,22 +41,31 @@ body {
   background-color: rgba(89, 89, 89, .8);
   border-radius: 25px;
   position: absolute;
-  top: 27%;
+  top: 31%;
   left: 50%;
   transform: translate(-50%, -50%);
+  border: 2px solid white;
+  box-shadow: 5px 10px #888888;
+}
+
+.navNverbs {
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 75%;
+  border: 6px outset white;
 }
 
 .nav {
-  background-color:#595959;
+  background-color: rgba(89, 89, 89, .9);
   color: white;
-  width: 80%;
   list-style-type: none;
   text-align: center;
   margin: 0;
   padding: 20px 0 20px 0;
   font-size: 15px;
-  border: 2px solid white;
-  margin: auto;
+  border: 2px outset white;
 }
 
 .nav > li {
@@ -71,6 +78,7 @@ body {
   text-decoration: none;
   color: white;
   background-color: black; 
+  border: 2px solid white;
   padding: 7px;
   border-radius: 5px;
 
@@ -80,12 +88,10 @@ body {
   color: #c1c1c1
 }
 
-/* .starButton {
-  background-color: grey;
-  color: white;
-} */
-
-
+.starList:hover {
+  color: black;
+  background-color: gold;
+}
 
 /* .dropdown {
   position: relative;
@@ -107,14 +113,13 @@ body {
 } */
 
 .verb-section {
-  background-color: burlywood;
-  border: 2px solid white;
-  width: 80%;
-  margin: auto;
+  background-color: rgba(176, 203, 139, .9);
+  border: 2px outset white;
+
 }
 
 label {
-  margin-right: 5px;
+  margin-right: 10px;
 }
 
 .inlineConjugate {
@@ -132,7 +137,10 @@ label {
   margin: 0 0 0 15px;
   /* background-color: yellow; */
   background-color: rgb(252, 255, 232);
-  color: black;
+  color: white;
+  text-shadow: 3px 3px 4px black, 0 0 25px black, 0 0 25px #FAFF17;
+  font-size: 14px;
+  border: 1px dashed black;
 }
 
 .verbH3Insert {
@@ -155,13 +163,16 @@ label {
 }
 
 .grid {
-  text-align: center;
   display: grid;
   grid-template-columns: auto auto;
   grid-template-rows: auto auto auto;
   justify-content: center;
   padding: 10px 10px 0 10px;
-  grid-gap: 10px;
+  grid-gap: 20px;
+}
+
+.inputBox {
+  display: flex;
 }
 
 .ioinput {
@@ -189,13 +200,13 @@ label {
   grid-column: 2;
 }
 
-
 button {
   margin: 10px;
   padding: 5px;
   border-radius: 15px;
   color: white;
   background-color: #595959;
+  font-size: 14px;
 }
 
 .checkBoxShowIrrConj {
@@ -204,11 +215,13 @@ button {
  }
 
 .checkAnswersBtn {
-  margin-left: 40px
+  margin-left: 40px;
+  margin-top: 0px;
 }
 
 .resetVerbListBtn {
   display: none;
-  margin: 40px;
+  margin-top: 0px;
+  margin-left: 40px;
   padding: 5px;
 }

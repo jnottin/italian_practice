@@ -10,6 +10,19 @@ var loroBox = document.querySelector(".loroInput");
 var tranlsateBox = document.querySelector(".translateInput");
 var answerBoxes = [ioBox, tuBox, luiBox, noiBox, voiBox, loroBox, tranlsateBox]
 
+const label1 = document.querySelector(".label1");
+const label2 = document.querySelector(".label2");
+const label3 = document.querySelector(".label3");
+const label4 = document.querySelector(".label4");
+const label5 = document.querySelector(".label5");
+const label6 = document.querySelector(".label6");
+
+var labels = [label1, label2, label3, label4, label5, label6]
+var italianLabels = ["io: ", "tu: ", "lui/lei: ", "noi: ", "voi: ", "loro: ",]
+var spanishLabels = ["yo: ", "tu: ", "él/ella/usted: ", "nosotros: ", "vosotros: ", "ellos: ",]
+var portugueseLabels = ["eu: ", "tu: ", "ele: ", "nós: ", "vós: ", "eles: ",]
+
+
 //SELECTING INPUT BOX VALUES
 var inputBoxes = [ioBox.value, tuBox.value, luiBox.value, noiBox.value, voiBox.value, loroBox.value]
 var inputs = ["io", "tu", "lui", "noi", "voi", "loro", "translate"];
@@ -28,6 +41,8 @@ const checkBoxShowIrrConj = document.querySelector(".checkBoxShowIrrConj");
 const starButton = document.querySelector(".starButton");
 const starListButton = document.querySelector(".starButton");
 const selectLanguageBtn = document.querySelector(".selectLanguageBtn");
+const h3VerbToConjuText = document.querySelector(".h3VerbToConjuText");
+
 
 //ADDING EVENT LISTENER TO BUTTON
 showNewVerbBtn.addEventListener("click", showNewVerb);
@@ -40,23 +55,56 @@ starButton.addEventListener("click", starChangeOnOrOff);
 // starListButton.addEventListener("click", loadStarVerbs);
 selectLanguageBtn.addEventListener("click", setALanguage);
 
+function pageLoad() {
+  checkAnswersBtn.disabled = true;
+  showNewVerbBtn.disabled = true;
+  checkBoxShowIrrConj.disabled = true;
+  checkBoxIrrVerbs.disabled = true;
+  checkBoxRegVerbs.disabled = true;
+  starButton.disabled = true;
+}
+
+function settingsForLanguageSelected() {
+  if (languageSelected === "italian") {
+    document.querySelector('.banner-image').src = "img/italy_banner.jpg";
+    document.querySelector('body').style.backgroundColor = "rgba(126, 129, 136, .9)";
+    document.querySelector('.verb-section').style.backgroundColor = "rgba(209, 228, 232, .9)";
+    for (var i = 0; i < labels.length; i++) {
+      labels[i].innerText = italianLabels[i]
+    }
+  } else if (languageSelected === "spanish") {
+    document.querySelector('.banner-image').src = "img/spain_banner.jpg";
+    document.querySelector('body').style.backgroundColor = "rgba(247, 178, 103, .9)";
+    document.querySelector('.verb-section').style.backgroundColor = "rgba(143, 191, 237, .9)";
+    for (var i = 0; i < labels.length; i++) {
+      labels[i].innerText = spanishLabels[i]
+    }
+  } else if (languageSelected === "portuguese") {
+    document.querySelector('.banner-image').src = "img/portugal_banner.jpg";
+    document.querySelector('body').style.backgroundColor = "rgba(119, 100, 114, .9)";
+    document.querySelector('.verb-section').style.backgroundColor = "rgba(255, 174, 89, .9)";
+    for (var i = 0; i < labels.length; i++) {
+      labels[i].innerText = portugueseLabels[i]
+    }
+  }
+}
 
 var languageSelected = "italian"
 function setALanguage() {
   if (languageSelected === "italian") {
     verbTenses = verbTensesSpanish
     languageSelected = "spanish"
-    document.querySelector('.banner-image').src = "img/spain_banner.jpg";
+    settingsForLanguageSelected()
     resetVerbList()
   } else if (languageSelected === "spanish") {
     verbTenses = verbTensesPortuguese
     languageSelected = "portuguese"
-    document.querySelector('.banner-image').src = "img/portugal_banner.jpg";
+    settingsForLanguageSelected()
     resetVerbList()
   } else if (languageSelected === "portuguese") {
     verbTenses = verbTensesItalian
     languageSelected = "italian"
-    document.querySelector('.banner-image').src = "img/italy_banner.jpg";
+    settingsForLanguageSelected()
     resetVerbList()
   }
 }
@@ -89,14 +137,14 @@ function resetStar() {
     starButton.style.backgroundColor = "rgb(252, 255, 232)";
     starStatus = "off"
   } else if (starList.indexOf(verbInserted) !== -1) {
-    starButton.style.backgroundColor = "rgb(234, 255, 28)";
+    starButton.style.backgroundColor = "#FAFF17";
     starStatus = "on"
   }
 }
 
 function starChangeOnOrOff() {
   if (starStatus === "off") {
-    starButton.style.backgroundColor = "rgb(234, 255, 28)";
+    starButton.style.backgroundColor = "#FAFF17";
     starStatus = "on"
     if (starList.indexOf(verbInserted) === -1) {
       starList.push(verbInserted);
@@ -821,9 +869,13 @@ function showResetButton() {
   checkAnswersBtn.style.display = "none";
   showNewVerbBtn.style.display = "none";
   tranlsateBox.style.display = "none";
+  //Not working, disabled the whole time for some reason
+  // h3VerbToConjuText.style.display = "none";
+  // starButton.style.display = "none";
   checkBoxShowIrrConj.disabled = true;
   checkBoxIrrVerbs.disabled = true;
   checkBoxRegVerbs.disabled = true;
+  starButton.disabled = true;
 }
 
 //CLEAR BOXES WHEN showNewVerb IS CLICKED
@@ -895,7 +947,13 @@ function resetVerbList() {
   checkAnswersBtn.style.display = "inline";
   showNewVerbBtn.style.display = "inline";
   tranlsateBox.style.display = "inline";
+  //Not working, disabled the whole time for some reason
+  // h3VerbToConjuText.style.display = "inline";
+  // starButton.style.display = "inline";
   checkBoxShowIrrConj.disabled = false;
+  starButton.disabled = false;
+  showNewVerbBtn.disabled = false;
+  checkAnswersBtn.disabled = false;
   checkBoxIrrVerbs.disabled = false;
   checkBoxRegVerbs.disabled = false;
   if (checkBoxRegVerbs.checked === true) {

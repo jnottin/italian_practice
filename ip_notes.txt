@@ -4,7 +4,7 @@ PROBLEMS:
         -MAKE DRYER!!!!!
 
     LAYOUT:
-        -LORO INPUT - still off by a little 
+        -LABELS - throwing input boxes way off, need to have them justified right
         
 
 
