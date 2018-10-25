@@ -69,26 +69,29 @@ function pageLoad() {
   checkBoxIrrVerbs.disabled = true;
   checkBoxRegVerbs.disabled = true;
   starButton.disabled = true;
+  for (var i = 0; i < answerBoxes.length; i++) {
+    answerBoxes[i].disabled = true;
+  }
 }
 
 function settingsForLanguageSelected() {
   if (languageSelected === "italian") {
     document.querySelector('.banner-image').src = "img/italy_banner.jpg";
-    document.querySelector('body').style.backgroundColor = "rgba(126, 129, 136, .9)";
+    document.querySelector('body').style.backgroundColor = "#534630";
     document.querySelector('.verb-section').style.backgroundColor = "rgba(209, 228, 232, .9)";
     for (var i = 0; i < labels.length; i++) {
       labels[i].innerText = italianLabels[i]
     }
   } else if (languageSelected === "spanish") {
     document.querySelector('.banner-image').src = "img/spain_banner.jpg";
-    document.querySelector('body').style.backgroundColor = "rgba(247, 178, 103, .9)";
+    document.querySelector('body').style.backgroundColor = "rgba(247, 178, 103";
     document.querySelector('.verb-section').style.backgroundColor = "rgba(143, 191, 237, .9)";
     for (var i = 0; i < labels.length; i++) {
       labels[i].innerText = spanishLabels[i]
     }
   } else if (languageSelected === "portuguese") {
     document.querySelector('.banner-image').src = "img/portugal_banner.jpg";
-    document.querySelector('body').style.backgroundColor = "rgba(119, 100, 114, .9)";
+    document.querySelector('body').style.backgroundColor = "rgba(119, 100, 114";
     document.querySelector('.verb-section').style.backgroundColor = "rgba(255, 174, 89, .9)";
     for (var i = 0; i < labels.length; i++) {
       labels[i].innerText = portugueseLabels[i]
@@ -965,6 +968,9 @@ function resetVerbList() {
   checkAnswersBtn.disabled = false;
   checkBoxIrrVerbs.disabled = false;
   checkBoxRegVerbs.disabled = false;
+  for (var i = 0; i < answerBoxes.length; i++) {
+    answerBoxes[i].disabled = false;
+  }
   if (checkBoxRegVerbs.checked === true) {
     checkBoxRegVerbs.checked = false;
   }

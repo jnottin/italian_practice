@@ -1,5 +1,5 @@
 body {
-  background-color: grey;
+  background-color: rgba(126, 129, 136);
   margin: 10px;
   padding: 10px;
   font-family: "Mali", cursive;
@@ -63,7 +63,7 @@ body {
   list-style-type: none;
   text-align: center;
   margin: 0;
-  padding: 20px 0 20px 0;
+  padding: 5px 0 5px 0;
   font-size: 15px;
   border: 2px outset white;
 }
@@ -88,7 +88,7 @@ body {
   color: #c1c1c1
 }
 
-.starList:hover {
+#starListId:hover {
   color: black;
   background-color: gold;
 }
@@ -120,14 +120,18 @@ body {
 .dropdown-content a:hover {background-color: #ddd;}
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {background-color: #3e8e41;}
+.dropdown:hover .dropbtn {
+  background-color: #FFD1D1;
+  color: #595959;
+  font-weight: bold;
+}
+
 
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
   display: block;
 }
 
-.dropdown:hover .dropbtn {background-color: #3e8e41;}
 
 .verb-section {
   background-color: rgba(176, 203, 139, .9);
@@ -241,4 +245,13 @@ button {
   margin-top: 0px;
   margin-left: 40px;
   padding: 5px;
+}
+
+.backToHome {
+  text-decoration: none;
+  font-weight: bold;
+  background: rgba(176, 203, 139);
+  border-radius: 15px;
+  padding: 5px;
+  border: 2px solid white;
 }
