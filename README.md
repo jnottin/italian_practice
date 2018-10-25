@@ -8,6 +8,11 @@ This is an app to be used to help study present, past and future verb conjugatio
 ##Problems It Solves
 This allows respondents to study a set list of verbs and practice how to use those verbs in situations involving any number of people as well as in 3 different time frames (present, past, future). If someone goes to a country where they speak one of these languages, that person will need to be familiar with how to conjugate verbs of that language to accurately convey what they want to say. This application allows them to practice those verbs to use in different situations.
 
+[Link to Picture of Project: Home Page] (https://i.imgur.com/jbUmKr0.png)
+[Link to Picture of Project: Italian Page] (https://i.imgur.com/q3iLYAM.jpg)
+[Link to Picture of Project: Spanish Page] (https://i.imgur.com/7TI0LSw.png)
+[Link to Picture of Project: Portuguese Page] (https://i.imgur.com/ZbeKZnM.png)
+
 ##List of Features / User Stories
 
 ###List of Features
@@ -64,8 +69,8 @@ Now you can clone it down to your local drive and make changes!
 
 ##Contribution Guidelines:
 
-Contribution Guidelines
-This section should offer guidance on where and how users can contribute to your code, identify bugs, and propose improvements
-Good links to include are:
-A link to the project's main repository
-A link to the project's issue tracker
+Anyone is welcome to make contributions! Simply fork the repo and clone it to your own computer, then make a pull request!
+
+[Link to main repo] (https://github.com/jnottin/italian_practice)
+[Link to project] (https://jnottin.github.io/italian_practice/index.html)
+
