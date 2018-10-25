@@ -1,7 +1,6 @@
 PROBLEMS:
     FUNCTIONALITY:
         -star list page -- not loading starList items, it's throwing error
-        -
         -MAKE DRYER!!!!!
 
     LAYOUT:

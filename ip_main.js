@@ -27,6 +27,7 @@ const checkBoxIrrVerbs = document.querySelector(".checkBoxIrrVerbs");
 const checkBoxShowIrrConj = document.querySelector(".checkBoxShowIrrConj");
 const starButton = document.querySelector(".starButton");
 const starListButton = document.querySelector(".starButton");
+const selectLanguageBtn = document.querySelector(".selectLanguageBtn");
 
 //ADDING EVENT LISTENER TO BUTTON
 showNewVerbBtn.addEventListener("click", showNewVerb);
@@ -37,6 +38,29 @@ checkBoxIrrVerbs.addEventListener("change", checkBothCheckedIrrLast);
 checkBoxShowIrrConj.addEventListener("change", checkBoxIrrVerbConj);
 starButton.addEventListener("click", starChangeOnOrOff);
 // starListButton.addEventListener("click", loadStarVerbs);
+selectLanguageBtn.addEventListener("click", setALanguage);
+
+
+var languageSelected = "italian"
+function setALanguage() {
+  if (languageSelected === "italian") {
+    verbTenses = verbTensesSpanish
+    languageSelected = "spanish"
+    document.querySelector('.banner-image').src = "img/spain_banner.jpg";
+    resetVerbList()
+  } else if (languageSelected === "spanish") {
+    verbTenses = verbTensesPortuguese
+    languageSelected = "portuguese"
+    document.querySelector('.banner-image').src = "img/portugal_banner.jpg";
+    resetVerbList()
+  } else if (languageSelected === "portuguese") {
+    verbTenses = verbTensesItalian
+    languageSelected = "italian"
+    document.querySelector('.banner-image').src = "img/italy_banner.jpg";
+    resetVerbList()
+  }
+}
+
 
 var createLi = "";
 var starListItem = "";
@@ -140,8 +164,12 @@ function resetFromCheckBox() {
 }
 
 function showOnlyRegVerbs() {
-  verbListNotShown = []
-  verbListShown = []
+  verbList = [];
+  verbListNotShown = [];
+  verbListShown = [];
+  for (var i = 0; i < verbTenses.length; i++) {
+    verbList.push(verbTenses[i].verb)
+  }
   for (var i = 0; i < verbTenses.length; i++) {
     if (verbTenses[i][verbList[i]].presente.reg_o_irr.form === "regular") {
       verbListNotShown.push(verbTenses[i].verb)
@@ -151,8 +179,12 @@ function showOnlyRegVerbs() {
 }
 
 function showOnlyIrrVerbs() {
-  verbListNotShown = []
-  verbListShown = []
+  verbList = [];
+  verbListNotShown = [];
+  verbListShown = [];
+  for (var i = 0; i < verbTenses.length; i++) {
+    verbList.push(verbTenses[i].verb)
+  }
   for (var i = 0; i < verbTenses.length; i++) {
     if (verbTenses[i][verbList[i]].presente.reg_o_irr.form === "irregular") {
       verbListNotShown.push(verbTenses[i].verb)
@@ -162,7 +194,10 @@ function showOnlyIrrVerbs() {
 }
 
 //OBJECT FOR VERB TENSES
-var verbTenses = [
+
+
+// REMEMBER WHEN MAKING NEW OBJECT, MUST CALL EACH VERB OBJECT BY THEIR VERBINSERTED NAME
+var verbTensesItalian = [
   {
     verb: "potere",
     potere: {
@@ -345,14 +380,388 @@ var verbTenses = [
   },
 ];
 
+var verbTensesSpanish = [
+  {
+    verb: "poder",
+    poder: {
+      translate: "to be able",
+      participio_presente: "potente",
+      gerundio: "podiendo",
+      participio_passato: "puesto",
+      presente: {
+        io: "puedo",
+        tu: "puedes",
+        lui: "puede",
+        noi: "podemos",
+        voi: "podéis",
+        loro: "pueden",
+        reg_o_irr: {
+          form: "irregular",
+          irrPlaces: ["yes", "yes", "yes", "no", "no", "yes"]
+        },
+      },
+      // passato_prossimo: {
+      //   ess_o_aver: "avere",
+      //   io: "ho potuto",
+      //   tu: "hai potuto",
+      //   lui: "ha potuto",
+      //   noi: "abbiamo potuto",
+      //   voi: "avete potuto",
+      //   loro: "hanno potuto",
+      //   reg_o_irr: {
+      //     form: "regular",
+      //   },
+      // },
+    },
+  },
+  {
+    verb: "ser",
+    ser: {
+      translate: "to be",
+      participio_presente: "essente",
+      gerundio: "siendo",
+      participio_passato: "sido",
+      presente: {
+        io: "soy",
+        tu: "eres",
+        lui: "es",
+        noi: "somos",
+        voi: "sois",
+        loro: "son",
+        reg_o_irr: {
+          form: "irregular",
+          irrPlaces: ["yes", "yes", "yes", "yes", "yes", "yes"]
+        },
+      },
+    },
+  },
+  {
+    verb: "tener",
+    tener: {
+      translate: "to have",
+      participio_presente: "avente",
+      gerundio: "teniendo",
+      participio_passato: "tenido",
+      presente: {
+        io: "tengo",
+        tu: "tienes",
+        lui: "tiene",
+        noi: "tenemos",
+        voi: "tenéis",
+        loro: "tienen",
+        reg_o_irr: {
+          form: "irregular",
+          irrPlaces: ["yes", "yes", "yes", "no", "no", "yes"]
+        }
+      },
+    },
+  },
+  {
+    verb: "subir",
+    subir: {
+      translate: "to go up",
+      participio_presente: "salente",
+      gerundio: "subiendo",
+      participio_passato: "subido",
+      presente: {
+        io: "subo",
+        tu: "subes",
+        lui: "sube",
+        noi: "subimos",
+        voi: "subís",
+        loro: "suben",
+        reg_o_irr: {
+          form: "regular",
+          irrPlaces: []
+        }
+      },
+    },
+  },
+  {
+    verb: "golpear",
+    golpear: {
+      translate: "to hit",
+      participio_presente: "colpente",
+      gerundio: "golpeando",
+      participio_passato: "golpeado",
+      presente: {
+        io: "golpeo",
+        tu: "golpeas",
+        lui: "golpea",
+        noi: "golpeamos",
+        voi: "golpeáis",
+        loro: "golpean",
+        reg_o_irr: {
+          form: "regular",
+          irrPlaces: []
+        },
+      },
+    },
+  },
+  {
+    verb: "ir",
+    ir: {
+      translate: "to go",
+      participio_presente: "andante",
+      gerundio: "yendo",
+      participio_passato: "ido",
+      presente: {
+        io: "voy",
+        tu: "vas",
+        lui: "va",
+        noi: "vamos",
+        voi: "vais",
+        loro: "van",
+        reg_o_irr: {
+          form: "irregular",
+          irrPlaces: ["yes", "yes", "yes", "yes", "yes", "yes"]
+        },
+      },
+    },
+  },
+  {
+    verb: "cenar",
+    cenar: {
+      translate: "to eat dinner",
+      participio_presente: "cenante",
+      gerundio: "cenando",
+      participio_passato: "cenado",
+      presente: {
+        io: "ceno",
+        tu: "cenas",
+        lui: "cena",
+        noi: "cenamos",
+        voi: "cenáis",
+        loro: "cenan",
+        reg_o_irr: {
+          form: "regular",
+          irrPlaces: []
+        }
+      },
+    },
+  },
+  {
+    verb: "comer",
+    comer: {
+      translate: "to eat",
+      participio_presente: "mangiante",
+      gerundio: "comiendo",
+      participio_passato: "comido",
+      presente: {
+        io: "como",
+        tu: "comes",
+        lui: "come",
+        noi: "comemos",
+        voi: "coméis",
+        loro: "comen",
+        reg_o_irr: {
+          form: "regular",
+          irrPlaces: []
+        }
+      }
+    }
+  },
+];
+
+var verbTensesPortuguese = [
+  {
+    verb: "poder",
+    poder: {
+      translate: "to be able",
+      participio_presente: "potente",
+      gerundio: "podendo",
+      participio_passato: "podido",
+      presente: {
+        io: "posso",
+        tu: "podes",
+        lui: "pode",
+        noi: "podemos",
+        voi: "podeis",
+        loro: "podem",
+        reg_o_irr: {
+          form: "irregular",
+          irrPlaces: ["yes", "no", "no", "no", "no", "no"]
+        },
+      },
+      // passato_prossimo: {
+      //   ess_o_aver: "avere",
+      //   io: "ho potuto",
+      //   tu: "hai potuto",
+      //   lui: "ha potuto",
+      //   noi: "abbiamo potuto",
+      //   voi: "avete potuto",
+      //   loro: "hanno potuto",
+      //   reg_o_irr: {
+      //     form: "regular",
+      //   },
+      // },
+    },
+  },
+  {
+    verb: "ser",
+    ser: {
+      translate: "to be",
+      participio_presente: "essente",
+      gerundio: "sendo",
+      participio_passato: "sido",
+      presente: {
+        io: "sou",
+        tu: "és",
+        lui: "é",
+        noi: "somos",
+        voi: "sois",
+        loro: "são",
+        reg_o_irr: {
+          form: "irregular",
+          irrPlaces: ["yes", "yes", "yes", "yes", "yes", "yes"]
+        },
+      },
+    },
+  },
+  {
+    verb: "ter",
+    ter: {
+      translate: "to have",
+      participio_presente: "avente",
+      gerundio: "tendo",
+      participio_passato: "tido",
+      presente: {
+        io: "tenho",
+        tu: "tens",
+        lui: "tem",
+        noi: "temos",
+        voi: "tendes",
+        loro: "tem",
+        reg_o_irr: {
+          form: "irregular",
+          irrPlaces: ["yes", "yes", "yes", "no", "yes", "yes"]
+        }
+      },
+    },
+  },
+  {
+    verb: "subir",
+    subir: {
+      translate: "to go up",
+      participio_presente: "salente",
+      gerundio: "subindo",
+      participio_passato: "subido",
+      presente: {
+        io: "subo",
+        tu: "sobes",
+        lui: "sobe",
+        noi: "subimos",
+        voi: "subis",
+        loro: "sobem",
+        reg_o_irr: {
+          form: "irregular",
+          irrPlaces: ["no", "yes", "yes", "no", "no", "yes"]
+        }
+      },
+    },
+  },
+  {
+    verb: "golpear",
+    golpear: {
+      translate: "to hit",
+      participio_presente: "colpente",
+      gerundio: "golpeando",
+      participio_passato: "golpeado",
+      presente: {
+        io: "golpeio",
+        tu: "golpeias",
+        lui: "golpeia",
+        noi: "golpeamos",
+        voi: "golpeais",
+        loro: "golpeiam",
+        reg_o_irr: {
+          form: "irregular",
+          irrPlaces: ["no", "yes", "yes", "no", "no", "yes"]
+        },
+      },
+    },
+  },
+  {
+    verb: "ir",
+    ir: {
+      translate: "to go",
+      participio_presente: "andante",
+      gerundio: "indo",
+      participio_passato: "ido",
+      presente: {
+        io: "vou",
+        tu: "vais",
+        lui: "vai",
+        noi: "vamos",
+        voi: "ides",
+        loro: "vão",
+        reg_o_irr: {
+          form: "irregular",
+          irrPlaces: ["yes", "yes", "yes", "yes", "yes", "yes"]
+        },
+      },
+    },
+  },
+  {
+    verb: "jantar",
+    jantar: {
+      translate: "to eat dinner",
+      participio_presente: "cenante",
+      gerundio: "jantando",
+      participio_passato: "jantado",
+      presente: {
+        io: "janto",
+        tu: "jantas",
+        lui: "janta",
+        noi: "jantamos",
+        voi: "jantais",
+        loro: "jantam",
+        reg_o_irr: {
+          form: "regular",
+          irrPlaces: []
+        }
+      },
+    },
+  },
+  {
+    verb: "comer",
+    comer: {
+      translate: "to eat",
+      participio_presente: "mangiante",
+      gerundio: "comendo",
+      participio_passato: "comido",
+      presente: {
+        io: "como",
+        tu: "comes",
+        lui: "come",
+        noi: "comemos",
+        voi: "comeis",
+        loro: "comem",
+        reg_o_irr: {
+          form: "regular",
+          irrPlaces: []
+        }
+      }
+    }
+  },
+];
+
+var verbTenses = verbTensesItalian
+
 // VERB ARRAY FOR SELECTION
 var verbList = [];
 var verbListNotShown = [];
 var verbListShown = [];
 
-for (var i = 0; i < verbTenses.length; i++) {
-  verbList.push(verbTenses[i].verb)
-  verbListNotShown.push(verbTenses[i].verb)
+function makeVerbLists() {
+  verbList = [];
+  verbListNotShown = [];
+  verbListShown = [];
+  for (var i = 0; i < verbTenses.length; i++) {
+    verbList.push(verbTenses[i].verb)
+    verbListNotShown.push(verbTenses[i].verb)
+  }
+  showNewVerb()
 }
 
 var verbInserted = "";
@@ -363,10 +772,6 @@ function updateNotShownNShownLists() {
   verbListNotShown.splice(verbListNotShown.indexOf(verbInserted), 1);
 }
 
-
-// DO NOT CHANGE VERBTENSES.LENGTH!!! - need that lengtth because your indexes are based on object which does not change
-
-//////HEREEEEEE!!!!
 function getRandomVerb(verbTensesLength) {
   randomVerbIndex = Math.floor(Math.random() * verbTensesLength);
   verbInserted = verbTenses[randomVerbIndex].verb
@@ -486,11 +891,7 @@ function checkAllAnswersCorr(io_input, tu_input, lui_input, noi_input, voi_input
 }
 
 function resetVerbList() {
-  verbListShown = []
-  verbListNotShown = [];
-  for (var i = 0; i < verbTenses.length; i++) {
-    verbListNotShown.push(verbTenses[i].verb)
-  }
+  makeVerbLists()
   checkAnswersBtn.style.display = "inline";
   showNewVerbBtn.style.display = "inline";
   tranlsateBox.style.display = "inline";
