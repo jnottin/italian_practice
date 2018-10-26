@@ -39,12 +39,16 @@ const checkBoxRegVerbs = document.querySelector(".checkBoxRegVerbs");
 const checkBoxIrrVerbs = document.querySelector(".checkBoxIrrVerbs");
 const checkBoxShowIrrConj = document.querySelector(".checkBoxShowIrrConj");
 const starButton = document.querySelector(".starButton");
-const starListButton = document.querySelector(".starButton");
+const starListButton = document.querySelector(".starListButton");
 const selectLanguageBtn = document.querySelector(".selectLanguageBtn");
 const h3VerbToConjuText = document.querySelector(".h3VerbToConjuText");
 const selectLanguageSpanish = document.querySelector(".selectLanguageSpanish");
 const selectLanguageItalian = document.querySelector(".selectLanguageItalian");
 const selectLanguagePortuguese = document.querySelector(".selectLanguagePortuguese");
+const selectVerbTensePresent = document.querySelector(".selectVerbTensePresent");
+const selectVerbTensePast = document.querySelector(".selectVerbTensePast");
+const selectVerbTenseFuture = document.querySelector(".selectVerbTenseFuture");
+const selectVerbTenseBtn = document.querySelector(".selectVerbTenseFuture");
 
 
 
@@ -61,10 +65,16 @@ starButton.addEventListener("click", starChangeOnOrOff);
 selectLanguageSpanish.addEventListener("click", setALanguageSpanish);
 selectLanguageItalian.addEventListener("click", setALanguageItalian);
 selectLanguagePortuguese.addEventListener("click", setALanguagePortuguese);
+// selectVerbTensePresent.addEventListener("click", setALanguageSpanish);
+// selectVerbTensePast.addEventListener("click", setALanguageItalian);
+// selectVerbTenseFuture.addEventListener("click", setALanguagePortuguese);
+
 
 function pageLoad() {
   checkAnswersBtn.disabled = true;
   showNewVerbBtn.disabled = true;
+  // starListButton.disabled = true;
+  // selectVerbTenseBtn.disabled = true;
   checkBoxShowIrrConj.disabled = true;
   checkBoxIrrVerbs.disabled = true;
   checkBoxRegVerbs.disabled = true;
@@ -99,6 +109,7 @@ function settingsForLanguageSelected() {
   }
 }
 
+
 var languageSelected = "italian"
 function setALanguageSpanish() {
   verbTenses = verbTensesSpanish
@@ -127,19 +138,19 @@ var starListItem = "";
 var starList = [];
 
 function loadStarVerbs() {
-  if (starList.length !== 0) {
-    for (var i = 0; i < starList.length; i++) {
-      createLi = document.createElement("LI");
-      starListItem = document.createTextNode(starList[i]);
-      createLi.appendChild(starListItem);
-      document.getElementById("myList").appendChild(starListItem);
-    }
-  } else {
-    createLi = document.createElement("LI");
-    starListItem = document.createTextNode("NO VERBS WERE STARED");
-    createLi.appendChild(starListItem);
-    document.getElementById("myList").appendChild(starListItem);
-  }
+  // // if (starList.length !== 0) {
+  // //   // for (var i = 0; i < starList.length; i++) {
+  // //     // createLi = document.createElement("LI");
+  // //     // starListItem = document.createTextNode(starList[i]);
+  // //     // createLi.appendChild(starListItem);
+  // //     // document.getElementById("myList").appendChild(starListItem);
+  // //   // }
+  // // } else {
+  // //   createLi = document.createElement("LI");
+  // //   starListItem = document.createTextNode("NO VERBS WERE STARED");
+  // //   createLi.appendChild(starListItem);
+  // //   document.getElementById("myList").appendChild(starListItem);
+  // // }
 }
 
 var starStatus = "off"
@@ -168,6 +179,7 @@ function starChangeOnOrOff() {
     starStatus = "off"
   }
 }
+
 
 function checkBoxIrrVerbConj() {
   if (checkBoxShowIrrConj.checked === true) {
@@ -968,6 +980,8 @@ function resetVerbList() {
   checkAnswersBtn.disabled = false;
   checkBoxIrrVerbs.disabled = false;
   checkBoxRegVerbs.disabled = false;
+  // starListButton.disabled = false;
+  // selectVerbTenseBtn.disabled = false;
   for (var i = 0; i < answerBoxes.length; i++) {
     answerBoxes[i].disabled = false;
   }
