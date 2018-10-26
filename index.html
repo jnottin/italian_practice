@@ -31,16 +31,16 @@
                     </div>
                 </li>
                 <li>
-                    <div class="dropdown language-dropdown">
-                        <button class="dropbtn language-dropdown nav-bar">Select A Verb Tense</button>
-                        <div class="dropdown-content language-content selectVerbTenseBtn">
+                    <div class="dropdown">
+                        <button class="dropbtn  nav-bar selectVerbTenseBtn">Select A Verb Tense</button>
+                        <div class="dropdown-content selectVerbTenseBtn">
                             <a href="#" class="selectVerbTensePast">Past</a>
                             <a href="#" class="selectVerbTensePresent">Present</a>
                             <a href="#" class="selectVerbTenseFuture">Future</a>
                         </div>
                     </div>
                 </li>
-                <li><a id="starListId" class="nav-bar starList" href="starList.html">Star List</a></li>
+                <li><button id="starListId" class="nav-bar starList starListButton" href="">Star List</button></li>
                 <li></li><input class="checkBox checkBoxRegVerbs" type="checkbox"> Only Regular Verbs</li>
                 <li></li><input class="checkbox checkBoxIrrVerbs" type="checkbox"> Only Irregular Verbs</li>
             </ul>
@@ -91,6 +91,21 @@
                 <button class="resetVerbListBtn">RESET VERB LIST</button>
             </div>
         </div>
+    </div>
+
+    <div class="insertStarList">
+        <h1 class="starListTitle"><u>STAR LIST</u></h1>
+        <h3 class="starListSubtitleItalian"><u>Italian Verbs</u></h3>
+        <ol id="myStarListItalian">
+        </ol>
+
+        <h3 class="starListSubtitleSpanish"><u>Spanish Verbs</u></h3>
+        <ol id="myStarListSpanish">
+        </ol>
+
+        <h3 class="starListSubtitlePortuguese"><u>Portuguese Verbs</u></h3>
+        <ol id="myStarListPortuguese">
+        </ol>
     </div>
     <script src="main.js"></script>
 </body>

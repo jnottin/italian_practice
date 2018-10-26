@@ -3,7 +3,7 @@ PROBLEMS:
         -disable star list button until starList =1 or more
         -get verb tenses to work -- GOTTA DEFINE LANGUAGE BEFORE TENSES, disable tenses before language is picked, give language a red shadow or something when page is loaded, then shown tenses after. Do not load new verb or enable other buttons until tense is decided. Language can be changed as much as they would like
 
-        -star list page -- not loading starList items, it's throwing error
+        -star list section -- real time update, if someone changes star for verb and starList is "on" then call updateStarList
         -MAKE DRYER!!!!!
 
     LAYOUT:

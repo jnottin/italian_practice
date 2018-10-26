@@ -49,7 +49,7 @@ const selectVerbTensePresent = document.querySelector(".selectVerbTensePresent")
 const selectVerbTensePast = document.querySelector(".selectVerbTensePast");
 const selectVerbTenseFuture = document.querySelector(".selectVerbTenseFuture");
 const selectVerbTenseBtn = document.querySelector(".selectVerbTenseFuture");
-
+const insertStarList = document.querySelector(".insertStarList");
 
 
 //ADDING EVENT LISTENER TO BUTTON
@@ -60,7 +60,7 @@ checkBoxRegVerbs.addEventListener("change", checkBothCheckedRegLast);
 checkBoxIrrVerbs.addEventListener("change", checkBothCheckedIrrLast);
 checkBoxShowIrrConj.addEventListener("change", checkBoxIrrVerbConj);
 starButton.addEventListener("click", starChangeOnOrOff);
-// starListButton.addEventListener("click", loadStarVerbs);
+starListButton.addEventListener("click", loadStarVerbs);
 // selectLanguageBtn.addEventListener("click", setALanguage);
 selectLanguageSpanish.addEventListener("click", setALanguageSpanish);
 selectLanguageItalian.addEventListener("click", setALanguageItalian);
@@ -73,6 +73,7 @@ selectLanguagePortuguese.addEventListener("click", setALanguagePortuguese);
 function pageLoad() {
   checkAnswersBtn.disabled = true;
   showNewVerbBtn.disabled = true;
+  insertStarList.style.display = "none";
   // starListButton.disabled = true;
   // selectVerbTenseBtn.disabled = true;
   checkBoxShowIrrConj.disabled = true;
@@ -110,7 +111,7 @@ function settingsForLanguageSelected() {
 }
 
 
-var languageSelected = "italian"
+var languageSelected = "globe"
 function setALanguageSpanish() {
   verbTenses = verbTensesSpanish
   languageSelected = "spanish"
@@ -132,34 +133,117 @@ function setALanguageItalian() {
   resetVerbList()
 }
 
+function clearStarListForAllLang() {
+  var ulItalian = document.getElementById("myStarListItalian");
+  while (ulItalian.firstChild) ulItalian.removeChild(ulItalian.firstChild);
+  var ulSpanish = document.getElementById("myStarListSpanish");
+  while (ulSpanish.firstChild) ulSpanish.removeChild(ulSpanish.firstChild);
+  var ulPortuguese = document.getElementById("myStarListPortuguese");
+  while (ulPortuguese.firstChild) ulPortuguese.removeChild(ulPortuguese.firstChild);
+}
 
 var createLi = "";
 var starListItem = "";
 var starList = [];
-
+var starListItalian = [];
+var starListSpanish = [];
+var starListPortuguese = [];
+var noVerbs = 0;
+var starListShow = "off"
 function loadStarVerbs() {
-  // // if (starList.length !== 0) {
-  // //   // for (var i = 0; i < starList.length; i++) {
-  // //     // createLi = document.createElement("LI");
-  // //     // starListItem = document.createTextNode(starList[i]);
-  // //     // createLi.appendChild(starListItem);
-  // //     // document.getElementById("myList").appendChild(starListItem);
-  // //   // }
-  // // } else {
-  // //   createLi = document.createElement("LI");
-  // //   starListItem = document.createTextNode("NO VERBS WERE STARED");
-  // //   createLi.appendChild(starListItem);
-  // //   document.getElementById("myList").appendChild(starListItem);
-  // // }
+  if (starListShow === "on") {
+    starListShow = "off"
+    insertStarList.style.display = "none";
+    clearStarListForAllLang()
+  } else if (starListShow === "off") {
+    insertStarList.style.display = "block";
+    starListSettingsPerLanguage()
+    starListShow = "on"
+    starListUpdateVerbs()
+  }
 }
 
-var starStatus = "off"
+function starListUpdateVerbs() {
+  if (starList.length !== 0) {
+    if (starListItalian !== 0) {
+      for (var i = 0; i < starListItalian.length; i++) {
+        createLi = document.createElement("LI");
+        starListAppend = starListItalian[i].charAt(0).toUpperCase() + starListItalian[i].slice(1);
+        starListItem = document.createTextNode(starListAppend);
+        createLi.appendChild(starListItem);
+        document.getElementById("myStarListItalian").appendChild(createLi);
+      }
+    } else if (starListItalian === 0) {
+      var ulItalian = document.getElementById("myStarListItalian");
+      while (ulItalian.firstChild) ulItalian.removeChild(ulItalian.firstChild);
+    }
+    if (starListSpanish !== 0) {
+      for (var i = 0; i < starListSpanish.length; i++) {
+        createLi = document.createElement("LI");
+        starListAppend = starListSpanish[i].charAt(0).toUpperCase() + starListSpanish[i].slice(1);
+        starListItem = document.createTextNode(starListAppend);
+        createLi.appendChild(starListItem);
+        document.getElementById("myStarListSpanish").appendChild(createLi);
+      }
+    } else if (starListSpanish === 0) {
+      var ulSpanish = document.getElementById("myStarListSpanish");
+      while (ulSpanish.firstChild) ulSpanish.removeChild(ulSpanish.firstChild);
+    }
+    if (starListPortuguese !== 0) {
+      for (var i = 0; i < starListPortuguese.length; i++) {
+        createLi = document.createElement("LI");
+        starListAppend = starListPortuguese[i].charAt(0).toUpperCase() + starListPortuguese[i].slice(1);
+        starListItem = document.createTextNode(starListAppend);
+        createLi.appendChild(starListItem);
+        document.getElementById("myStarListPortuguese").appendChild(createLi);
+      }
+    } else if (starListPortuguese === 0) {
+      var ulPortuguese = document.getElementById("myStarListPortuguese");
+      while (ulPortuguese.firstChild) ulPortuguese.removeChild(ulPortuguese.firstChild);
+    }
+  }
+}
 
+
+function starListSettingsPerLanguage() {
+  if (languageSelected === "globe") {
+    document.querySelector('.insertStarList').style.backgroundColor = "rgba(176, 203, 139, .9)";
+  } else if (languageSelected === "italian") {
+    document.querySelector('.insertStarList').style.backgroundColor = "rgba(209, 228, 232, .9)";
+  } else if (languageSelected === "spanish") {
+    document.querySelector('.insertStarList').style.backgroundColor = "rgba(143, 191, 237, .9)";
+  } else if (languageSelected === "portuguese") {
+    document.querySelector('.insertStarList').style.backgroundColor = "rgba(255, 174, 89, .9)";
+  }
+}
+
+function starListPerLanguage() {
+
+}
+
+
+
+
+var starStatus = "off"
 function resetStar() {
-  if (starList.indexOf(verbInserted) === -1) {
+  if (languageSelected === "italian" && starListItalian.indexOf(verbInserted) === -1) {
     starButton.style.backgroundColor = "rgb(252, 255, 232)";
     starStatus = "off"
-  } else if (starList.indexOf(verbInserted) !== -1) {
+  } else if (languageSelected === "italian" && starListItalian.indexOf(verbInserted) !== -1) {
+    starButton.style.backgroundColor = "#FAFF17";
+    starStatus = "on"
+  }
+  if (languageSelected === "spanish" && starListSpanish.indexOf(verbInserted) === -1) {
+    starButton.style.backgroundColor = "rgb(252, 255, 232)";
+    starStatus = "off"
+  } else if (languageSelected === "spanish" && starListSpanish.indexOf(verbInserted) !== -1) {
+    starButton.style.backgroundColor = "#FAFF17";
+    starStatus = "on"
+  }
+  if (languageSelected === "portuguese" && starListPortuguese.indexOf(verbInserted) === -1) {
+    starButton.style.backgroundColor = "rgb(252, 255, 232)";
+    starStatus = "off"
+  } else if (languageSelected === "portuguese" && starListPortuguese.indexOf(verbInserted) !== -1) {
     starButton.style.backgroundColor = "#FAFF17";
     starStatus = "on"
   }
@@ -172,11 +256,28 @@ function starChangeOnOrOff() {
     if (starList.indexOf(verbInserted) === -1) {
       starList.push(verbInserted);
     }
+    if (languageSelected === "italian") {
+      starListItalian.push(verbInserted);
+    } else if (languageSelected === "spanish") {
+      starListSpanish.push(verbInserted);
+    } else if (languageSelected === "portuguese") {
+      starListPortuguese.push(verbInserted);
+    }
   } else if (starStatus === "on") {
     starButton.style.backgroundColor = "rgb(252, 255, 232)";
     var starListRemoveIndex = starList.indexOf(verbInserted)
     starList.splice(starListRemoveIndex, 1);
     starStatus = "off"
+    if (languageSelected === "italian") {
+      var starListItalianRemoveIndex = starListItalian.indexOf(verbInserted)
+      starListItalian.splice(starListItalianRemoveIndex, 1);
+    } else if (languageSelected === "spanish") {
+      var starListSpanishRemoveIndex = starListSpanish.indexOf(verbInserted)
+      starListSpanish.splice(starListSpanishRemoveIndex, 1);
+    } else if (languageSelected === "portuguese") {
+      var starListPortugueseRemoveIndex = starListPortuguese.indexOf(verbInserted)
+      starListPortuguese.splice(starListPortugueseRemoveIndex, 1);
+    }
   }
 }
 
@@ -876,11 +977,7 @@ function showNewVerb() {
     checkBoxShowIrrConj.checked = false
     checkBoxIrrVerbConj()
     clearBoxes()
-    if (starList.indexOf(verbInserted) !== -1) {
-      resetStar()
-    } else {
-      resetStar()
-    }
+    resetStar()
   } else {
     messageAllAnswersCorrect.innerText = "";
     verbInsertPlacement.innerText = "Great job, you learned all the verbs! Click the 'RESET VERB LIST' button to study the verbs again.";
@@ -980,6 +1077,9 @@ function resetVerbList() {
   checkAnswersBtn.disabled = false;
   checkBoxIrrVerbs.disabled = false;
   checkBoxRegVerbs.disabled = false;
+  starListShow = "off"
+  insertStarList.style.display = "none";
+  clearStarListForAllLang()
   // starListButton.disabled = false;
   // selectVerbTenseBtn.disabled = false;
   for (var i = 0; i < answerBoxes.length; i++) {
