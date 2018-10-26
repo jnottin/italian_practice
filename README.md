@@ -1,8 +1,8 @@
-#italian_practice#
+# italian_practice
 
-#**Project: Conjugate This**#
+# **Project: Conjugate This**
 
-##About Application##
+## About Application
 This is an app to be used to help study present, past and future verb conjugation in Spanish, Italian and Portuguese. 
 
 ##Problems It Solves##
