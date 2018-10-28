@@ -1,9 +1,11 @@
 PROBLEMS:
     FUNCTIONALITY:
         -disable star list button until starList =1 or more
-        -get verb tenses to work -- GOTTA DEFINE LANGUAGE BEFORE TENSES, disable tenses before language is picked, give language a red shadow or something when page is loaded, then shown tenses after. Do not load new verb or enable other buttons until tense is decided. Language can be changed as much as they would like
-
-        -star list section -- real time update, if someone changes star for verb and starList is "on" then call updateStarList
+        -get verb tenses to work -- GOTTA DEFINE LANGUAGE BEFORE TENSES, disable tenses before language is picked, 
+        give language a red shadow or something when page is loaded, then shown tenses after. Do not load new verb or enable other buttons until tense is decided. Language can be changed as much as they would like
+	    -at Reset Verbs hide "Verb to conjugate..." and "Star This Verb" button
+        -star list section -- real time update and when starList is showing, make button gold, if someone changes star for verb and starList is "on" then call updateStarList, 
+        -PHONE SIZE / adjust to screen size-- make it phone size
         -MAKE DRYER!!!!!
 
     LAYOUT:
