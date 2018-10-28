@@ -78,7 +78,7 @@ function pageLoad() {
     showNewVerbBtn.disabled = true;
     insertStarList.style.display = "none";
     // starListButton.disabled = true;
-    selectVerbTenseBtn.disabled = true;
+    // selectVerbTenseBtn.disabled = true;
     checkBoxShowIrrConj.disabled = true;
     checkBoxIrrVerbs.disabled = true;
     checkBoxRegVerbs.disabled = true;
@@ -91,19 +91,25 @@ function pageLoad() {
 function setAVerbTensePast() {
     verbTense = "passato";
     selectVerbTenseBtn.innerText = "Verb Tense: Past"
-    resetVerbList()
+    if (languageSelected !== "globe" && verbTense !== "") {
+        resetVerbList()
+    }
 }
 
 function setAVerbTensePresent() {
     verbTense = "presente";
     selectVerbTenseBtn.innerText = "Verb Tense: Present"
-    resetVerbList()
+    if (languageSelected !== "globe" && verbTense !== "") {
+        resetVerbList()
+    }
 }
 
 function setAVerbTenseFuture() {
     verbTense = "futuro";
     selectVerbTenseBtn.innerText = "Verb Tense: Future"
-    resetVerbList()
+    if (languageSelected !== "globe" && verbTense !== "") {
+        resetVerbList()
+    }
 }
 
 function settingsForLanguageSelected() {
@@ -140,24 +146,27 @@ function setALanguageSpanish() {
     verbObjects = verbObjectsSpanish
     languageSelected = "spanish"
     settingsForLanguageSelected()
-    resetVerbList()
-    selectVerbTenseBtn.disabled = false;
+    if (languageSelected !== "globe" && verbTense !== "") {
+        resetVerbList()
+    }
 }
 
 function setALanguagePortuguese() {
     verbObjects = verbObjectsPortuguese
     languageSelected = "portuguese"
     settingsForLanguageSelected()
-    resetVerbList()
-    selectVerbTenseBtn.disabled = false;
+    if (languageSelected !== "globe" && verbTense !== "") {
+        resetVerbList()
+    }
 }
 
 function setALanguageItalian() {
     verbObjects = verbObjectsItalian
     languageSelected = "italian"
     settingsForLanguageSelected()
-    resetVerbList()
-    selectVerbTenseBtn.disabled = false;
+    if (languageSelected !== "globe" && verbTense !== "") {
+        resetVerbList()
+    }
 }
 
 function clearStarListForAllLang() {
@@ -1187,6 +1196,30 @@ var verbObjectsPortuguese = [
                 reg_o_irr: {
                     form: "irregular",
                     irrPlaces: ["yes", "yes", "yes", "yes", "yes", "yes"]
+                },
+            },
+            passato: {
+                io: "",
+                tu: "",
+                lui: "",
+                noi: "",
+                voi: "",
+                loro: "",
+                reg_o_irr: {
+                    form: "regular",
+                    irrPlaces: []
+                },
+            },
+            futuro: {
+                io: "",
+                tu: "",
+                lui: "",
+                noi: "",
+                voi: "",
+                loro: "",
+                reg_o_irr: {
+                    form: "regular",
+                    irrPlaces: ["yes", "yes", "yes", "yes", "no", "yes"]
                 },
             },
         },

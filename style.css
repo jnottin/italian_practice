@@ -6,6 +6,9 @@ body {
   border: 7px outset white;
 }
 
+.borderAll {
+}
+
 .banner-container{
   width: 90%;
   display: block;
@@ -259,9 +262,23 @@ button {
   border: 2px solid white;
 }
 
-.selectVerbTenseBtn {
-  /* display: none; */
-}
-#myStarList {
+@media screen and (max-width: 750px) {
+   .title {
+    top: 15%;
+  }
+  .sub-header {
+    top: 28%;
+    font-size: 15px;
+  }
+  .banner-container {
+    width: 80%;
+  }
+  .navNverbs {
+    top: 69%;
+    width: 72.5%;
+  }
+  .checkBoxRegVerbs {
+  }
+
 
 }
