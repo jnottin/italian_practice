@@ -1,7 +1,7 @@
 PROBLEMS:
     FUNCTIONALITY:
         -Portu Ser is not cheking answers
-        -
+        -Work on graphics
         -disable star list button until starList =1 or more
         -get verb tenses to work -- GOTTA DEFINE LANGUAGE BEFORE TENSES, disable tenses before language is picked, 
         give language a red shadow or something when page is loaded, then shown tenses after. Do not load new verb or enable other buttons until tense is decided. Language can be changed as much as they would like
@@ -89,15 +89,13 @@ QUESTIONS:
 
 
 
-1. Why is translate verb input box the only one being hightlighted?
+1. What does "Responsive" view mean in the inspect looking at changing screen sizes?
 
+2. Why is StarList appearing where it is?
 
+3. 
 
-1. 
-
-2. 
-
-5. CSS question, showVerbSection display: inline does not put items inline. Why?
+4. 
 
 
 

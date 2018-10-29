@@ -6,9 +6,6 @@ body {
   border: 7px outset white;
 }
 
-.borderAll {
-}
-
 .banner-container{
   width: 90%;
   display: block;
@@ -49,6 +46,24 @@ body {
   transform: translate(-50%, -50%);
   border: 2px solid white;
   box-shadow: 5px 10px #888888;
+}
+
+.oldMan {
+  top: 45%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  display: none;
+}
+
+.rocket {
+  right: 60%;
+  top: 80%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  display: none;
+  width: 40%;
+  height: 60%;
+  transform: rotate(15deg);
 }
 
 .navNverbs {
@@ -277,8 +292,24 @@ button {
     top: 69%;
     width: 72.5%;
   }
-  .checkBoxRegVerbs {
-  }
-
-
 }
+
+/* @media screen and (max-width: 350px) {
+  body {
+    font-size: 5px;
+  }
+  .title {
+   top: 15%;
+ }
+ .sub-header {
+   top: 28%;
+   font-size: 15px;
+ }
+ .banner-container {
+   width: 80%;
+ }
+ .navNverbs {
+   top: 69%;
+   width: 72.5%;
+ }
+} */

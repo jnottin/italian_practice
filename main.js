@@ -72,6 +72,40 @@ selectVerbTensePresent.addEventListener("click", setAVerbTensePresent);
 selectVerbTensePast.addEventListener("click", setAVerbTensePast);
 selectVerbTenseFuture.addEventListener("click", setAVerbTenseFuture);
 
+function oldManMove() {
+    var oldMan = document.querySelector(".oldMan");
+    var pos = 0;
+    var id = setInterval(frame, 2);
+    oldMan.style.display = "inline";
+    function frame() {
+        if (pos == 1500) {
+            clearInterval(id);
+            oldMan.style.display = "none";
+        } else {
+            pos++;
+            // oldMan.style.top = pos + 'px';
+            oldMan.style.left = pos + 'px';
+        }
+    }
+}
+
+function rocketFly() {
+    var rocket = document.querySelector(".rocket");
+    var pos = 100;
+    var id = setInterval(frame, 2);
+    rocket.style.display = "inline";
+    function frame() {
+        if (pos == 1000) {
+            clearInterval(id);
+            rocket.style.display = "none";
+        } else {
+            pos--;
+            rocket.style.top = pos + 'px';
+            rocket.style.right = pos + 'px';
+        }
+    }
+}
+
 function pageLoad() {
     selectLanguageBtn.boxShadow = "5px 10px 20px red inset";
     checkAnswersBtn.disabled = true;
@@ -91,9 +125,11 @@ function pageLoad() {
 function setAVerbTensePast() {
     verbTense = "passato";
     selectVerbTenseBtn.innerText = "Verb Tense: Past"
+    oldManMove()
     if (languageSelected !== "globe" && verbTense !== "") {
         resetVerbList()
     }
+
 }
 
 function setAVerbTensePresent() {
@@ -107,6 +143,7 @@ function setAVerbTensePresent() {
 function setAVerbTenseFuture() {
     verbTense = "futuro";
     selectVerbTenseBtn.innerText = "Verb Tense: Future"
+    rocketFly()
     if (languageSelected !== "globe" && verbTense !== "") {
         resetVerbList()
     }
