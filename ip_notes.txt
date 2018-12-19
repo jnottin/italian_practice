@@ -1,5 +1,8 @@
 PROBLEMS:
     FUNCTIONALITY:
+	-BROKE THE MOTHERFUCKERRRRRRR!!! It has to do with checking Reg verbs or Irr verbs check box -- PRESENT TENSE IS WORKING, not past or future, i think it has to do with setting the tense.
+
+
         -Portu Ser is not cheking answers
         -Work on graphics
         -disable star list button until starList =1 or more

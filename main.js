@@ -511,7 +511,7 @@ var verbObjectsItalian = [
                 voi: "siete stati",
                 loro: "sono stati",
                 reg_o_irr: {
-                    form: "regular",
+                    form: "irregular",
                     irrPlaces: []
                 },
             },
@@ -799,7 +799,7 @@ var verbObjectsItalian = [
                 voi: "mangerete",
                 loro: "mangeranno",
                 reg_o_irr: {
-                    form: "irregular",
+                    form: "regular",
                     irrPlaces: ["yes", "yes", "yes", "yes", "yes", "yes"]
                 },
             },
@@ -983,7 +983,7 @@ var verbObjectsSpanish = [
                 loro: "subirán",
                 reg_o_irr: {
                     form: "regular",
-                    irrPlaces: ["yes", "yes", "yes", "yes", "no", "yes"]
+                    irrPlaces: []
                 },
             },
         },
@@ -1191,24 +1191,24 @@ var verbObjectsPortuguese = [
                 },
             },
             passato: {
-                io: "",
-                tu: "",
-                lui: "",
-                noi: "",
-                voi: "",
-                loro: "",
+                io: "pude",
+                tu: "pudeste",
+                lui: "pôde",
+                noi: "pudemos",
+                voi: "pudestes",
+                loro: "puderam",
                 reg_o_irr: {
-                    form: "regular",
+                    form: "irregular",
                     irrPlaces: ["yes", "yes", "yes", "yes", "no", "yes"]
                 },
             },
             futuro: {
-                io: "",
-                tu: "",
-                lui: "",
-                noi: "",
-                voi: "",
-                loro: "",
+                io: "poderei",
+                tu: "poderás",
+                lui: "poderá",
+                noi: "poderemos",
+                voi: "podereis",
+                loro: "poderão",
                 reg_o_irr: {
                     form: "regular",
                     irrPlaces: ["yes", "yes", "yes", "yes", "no", "yes"]
@@ -1236,24 +1236,24 @@ var verbObjectsPortuguese = [
                 },
             },
             passato: {
-                io: "",
-                tu: "",
-                lui: "",
-                noi: "",
-                voi: "",
-                loro: "",
+                io: "fui",
+                tu: "foste",
+                lui: "foi",
+                noi: "fomos",
+                voi: "fostes",
+                loro: "foram",
                 reg_o_irr: {
-                    form: "regular",
+                    form: "irregular",
                     irrPlaces: []
                 },
             },
             futuro: {
-                io: "",
-                tu: "",
-                lui: "",
-                noi: "",
-                voi: "",
-                loro: "",
+                io: "serei",
+                tu: "serás",
+                lui: "será",
+                noi: "seremos",
+                voi: "sereis",
+                loro: "serão",
                 reg_o_irr: {
                     form: "regular",
                     irrPlaces: ["yes", "yes", "yes", "yes", "no", "yes"]
@@ -1281,24 +1281,24 @@ var verbObjectsPortuguese = [
                 }
             },
             passato: {
-                io: "",
-                tu: "",
-                lui: "",
-                noi: "",
-                voi: "",
-                loro: "",
+                io: "tive",
+                tu: "tiveste",
+                lui: "teve",
+                noi: "tivemos",
+                voi: "tivestes",
+                loro: "tiveram",
                 reg_o_irr: {
-                    form: "regular",
+                    form: "irregular",
                     irrPlaces: ["yes", "yes", "yes", "yes", "no", "yes"]
                 },
             },
             futuro: {
-                io: "",
-                tu: "",
-                lui: "",
-                noi: "",
-                voi: "",
-                loro: "",
+                io: "terei",
+                tu: "terás",
+                lui: "terá",
+                noi: "teremos",
+                voi: "tereis",
+                loro: "terão",
                 reg_o_irr: {
                     form: "regular",
                     irrPlaces: ["yes", "yes", "yes", "yes", "no", "yes"]
@@ -1326,24 +1326,24 @@ var verbObjectsPortuguese = [
                 }
             },
             passato: {
-                io: "",
-                tu: "",
-                lui: "",
-                noi: "",
-                voi: "",
-                loro: "",
+                io: "subi",
+                tu: "subiste",
+                lui: "subiu",
+                noi: "subimos",
+                voi: "subistes",
+                loro: "subiram",
                 reg_o_irr: {
                     form: "regular",
                     irrPlaces: ["yes", "yes", "yes", "yes", "no", "yes"]
                 },
             },
             futuro: {
-                io: "",
-                tu: "",
-                lui: "",
-                noi: "",
-                voi: "",
-                loro: "",
+                io: "subirei",
+                tu: "subirás",
+                lui: "subirá",
+                noi: "subiremos",
+                voi: "subireis",
+                loro: "subirão",
                 reg_o_irr: {
                     form: "regular",
                     irrPlaces: ["yes", "yes", "yes", "yes", "no", "yes"]
@@ -1371,24 +1371,24 @@ var verbObjectsPortuguese = [
                 },
             },
             passato: {
-                io: "",
-                tu: "",
-                lui: "",
-                noi: "",
-                voi: "",
-                loro: "",
+                io: "golpeei",
+                tu: "golpeaste",
+                lui: "golpeou",
+                noi: "golpeamos",
+                voi: "golpeastes",
+                loro: "golpearam",
                 reg_o_irr: {
                     form: "regular",
                     irrPlaces: ["yes", "yes", "yes", "yes", "no", "yes"]
                 },
             },
             futuro: {
-                io: "",
-                tu: "",
-                lui: "",
-                noi: "",
-                voi: "",
-                loro: "",
+                io: "golpearei",
+                tu: "golpearás",
+                lui: "golpeará",
+                noi: "golpearemos",
+                voi: "golpeareis",
+                loro: "golpearão",
                 reg_o_irr: {
                     form: "regular",
                     irrPlaces: ["yes", "yes", "yes", "yes", "no", "yes"]
@@ -1416,24 +1416,24 @@ var verbObjectsPortuguese = [
                 },
             },
             passato: {
-                io: "",
-                tu: "",
-                lui: "",
-                noi: "",
-                voi: "",
-                loro: "",
+                io: "fui",
+                tu: "foste",
+                lui: "foi",
+                noi: "fomos",
+                voi: "fostes",
+                loro: "foram",
                 reg_o_irr: {
-                    form: "regular",
+                    form: "irregular",
                     irrPlaces: ["yes", "yes", "yes", "yes", "no", "yes"]
                 },
             },
             futuro: {
-                io: "",
-                tu: "",
-                lui: "",
-                noi: "",
-                voi: "",
-                loro: "",
+                io: "irei",
+                tu: "irás",
+                lui: "irá",
+                noi: "iremos",
+                voi: "ireis",
+                loro: "irão",
                 reg_o_irr: {
                     form: "regular",
                     irrPlaces: ["yes", "yes", "yes", "yes", "no", "yes"]
@@ -1461,12 +1461,12 @@ var verbObjectsPortuguese = [
                 }
             },
             passato: {
-                io: "",
-                tu: "",
-                lui: "",
-                noi: "",
-                voi: "",
-                loro: "",
+                io: "jantei",
+                tu: "jantaste",
+                lui: "jantou",
+                noi: "jantamos",
+                voi: "jantastes",
+                loro: "jantaram",
                 reg_o_irr: {
                     form: "regular",
                     irrPlaces: ["yes", "yes", "yes", "yes", "no", "yes"]
@@ -1474,12 +1474,12 @@ var verbObjectsPortuguese = [
                 },
             },
             futuro: {
-                io: "",
-                tu: "",
-                lui: "",
-                noi: "",
-                voi: "",
-                loro: "",
+                io: "jantarei",
+                tu: "jantarás",
+                lui: "jantará",
+                noi: "jantaremos",
+                voi: "jantareis",
+                loro: "jantarão",
                 reg_o_irr: {
                     form: "regular",
                     irrPlaces: ["yes", "yes", "yes", "yes", "no", "yes"]
@@ -1507,24 +1507,24 @@ var verbObjectsPortuguese = [
                 }
             },
             passato: {
-                io: "",
-                tu: "",
-                lui: "",
-                noi: "",
-                voi: "",
-                loro: "",
+                io: "comi",
+                tu: "comeste",
+                lui: "comeu",
+                noi: "comemos",
+                voi: "comestes",
+                loro: "comeram",
                 reg_o_irr: {
                     form: "regular",
                     irrPlaces: ["yes", "yes", "yes", "yes", "no", "yes"]
                 },
             },
             futuro: {
-                io: "",
-                tu: "",
-                lui: "",
-                noi: "",
-                voi: "",
-                loro: "",
+                io: "comerei",
+                tu: "comerás",
+                lui: "comerá",
+                noi: "comeremos",
+                voi: "comereis",
+                loro: "comerão",
                 reg_o_irr: {
                     form: "regular",
                     irrPlaces: ["yes", "yes", "yes", "yes", "no", "yes"]
