@@ -1,6 +1,6 @@
 PROBLEMS:
     FUNCTIONALITY:
-	-BROKE THE MOTHERFUCKERRRRRRR!!! It has to do with checking Reg verbs or Irr verbs check box -- PRESENT TENSE IS WORKING, not past or future, i think it has to do with setting the tense.
+	- SPAN, PAST FUT irr/reg button broken -fixed checkbox for ITL and Port Pres, Past, Fut, need to fix Spanish Past, Fut irr/reg checkbox, error on 429 irr_o_reg not defined
 
 
         -Portu Ser is not cheking answers

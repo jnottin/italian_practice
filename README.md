@@ -6,13 +6,18 @@ This is an app to be used to help study present, past and future verb conjugatio
 ## Problems It Solves
 This allows respondents to study a set list of verbs and practice how to use those verbs in situations involving any number of people as well as in 3 different time frames (present, past, future). If someone goes to a country where they speak one of these languages, that person will need to be familiar with how to conjugate verbs of that language to accurately convey what they want to say. This application allows them to practice those verbs to use in different situations.
 
-![Link to Picture of Project: Home Page]   (https://i.imgur.com/jbUmKr0.png)
+Picture of Project: Home Page
+![Link to Picture of Project: Home Page](https://i.imgur.com/jbUmKr0.png)
 
-![Link to Picture of Project: Italian Page]   (https://i.imgur.com/q3iLYAM.jpg)
+Link to Picture of Project: Italian Page
+![Link to Picture of Project: Italian Page](https://i.imgur.com/q3iLYAM.jpg)
 
-![Link to Picture of Project: Spanish Page]   (https://i.imgur.com/7TI0LSw.png)
+Link to Picture of Project: Spanish Page
+![Link to Picture of Project: Spanish Page](https://i.imgur.com/7TI0LSw.png)
 
-![Link to Picture of Project: Portuguese Page]   (https://i.imgur.com/ZbeKZnM.png)
+Link to Picture of Project: Portuguese Page
+![Link to Picture of Project: Portuguese Page](https://i.imgur.com/ZbeKZnM.png)
+
 
 ## List of Features / User Stories
 

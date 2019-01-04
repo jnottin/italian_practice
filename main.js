@@ -107,6 +107,7 @@ function rocketFly() {
 }
 
 function pageLoad() {
+    //BELOW IS WRONG, NEEDS .STYLE.BOXSHADOW BUT TOO SCARED TO DELETE
     selectLanguageBtn.boxShadow = "5px 10px 20px red inset";
     checkAnswersBtn.disabled = true;
     showNewVerbBtn.disabled = true;
