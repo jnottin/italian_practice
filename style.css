@@ -48,6 +48,24 @@ body {
   box-shadow: 5px 10px #888888;
 }
 
+.oldMan {
+  top: 45%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  display: none;
+}
+
+.rocket {
+  right: 60%;
+  top: 80%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  display: none;
+  width: 40%;
+  height: 60%;
+  transform: rotate(15deg);
+}
+
 .navNverbs {
   position: absolute;
   top: 65%;
@@ -247,11 +265,51 @@ button {
   padding: 5px;
 }
 
-.backToHome {
-  text-decoration: none;
+
+.insertStarList {
+  padding: 10px;
+  width: 170px;
+  margin: 20px 0 20px 70px;
   font-weight: bold;
   background: rgba(176, 203, 139);
   border-radius: 15px;
   padding: 5px;
   border: 2px solid white;
 }
+
+@media screen and (max-width: 750px) {
+   .title {
+    top: 15%;
+  }
+  .sub-header {
+    top: 28%;
+    font-size: 15px;
+  }
+  .banner-container {
+    width: 80%;
+  }
+  .navNverbs {
+    top: 69%;
+    width: 72.5%;
+  }
+}
+
+/* @media screen and (max-width: 350px) {
+  body {
+    font-size: 5px;
+  }
+  .title {
+   top: 15%;
+ }
+ .sub-header {
+   top: 28%;
+   font-size: 15px;
+ }
+ .banner-container {
+   width: 80%;
+ }
+ .navNverbs {
+   top: 69%;
+   width: 72.5%;
+ }
+} */
